@@ -8,6 +8,21 @@
 
 ---
 
+## AI歴史
+- **第二次AIブーム**: 1980年代、エキスパートシステムの実用化で到来 → [02_ai_history/second_ai_boom.md](../02_ai_history/second_ai_boom.md)
+- **エキスパートシステム（Expert System）**: 専門家の知識を取り込んだAIシステム、第二次ブームの中核技術 → [02_ai_history/second_ai_boom.md](../02_ai_history/second_ai_boom.md)
+- **知識ベース（Knowledge Base）**: IF-THENルールの集合 → [02_ai_history/second_ai_boom.md](../02_ai_history/second_ai_boom.md)
+- **推論エンジン（Inference Engine）**: ルールを適用して推論を実行 → [02_ai_history/second_ai_boom.md](../02_ai_history/second_ai_boom.md)
+- **IF-THENルール（プロダクションルール）**: 「IF 条件 THEN 結論」形式の知識表現 → [02_ai_history/second_ai_boom.md](../02_ai_history/second_ai_boom.md)
+- **前向き推論（Forward Chaining）**: データから結論へ推論 → [02_ai_history/second_ai_boom.md](../02_ai_history/second_ai_boom.md)
+- **後ろ向き推論（Backward Chaining）**: 仮説から証拠を探索 → [02_ai_history/second_ai_boom.md](../02_ai_history/second_ai_boom.md)
+- **MYCIN（マイシン）**: 医療診断システム、最も有名なエキスパートシステム → [02_ai_history/second_ai_boom.md](../02_ai_history/second_ai_boom.md)
+- **DENDRAL（デンドラル）**: 化学分析システム、世界初の実用的エキスパートシステム → [02_ai_history/second_ai_boom.md](../02_ai_history/second_ai_boom.md)
+- **XCON（R1）**: コンピュータ設計のエキスパートシステム、商業的成功 → [02_ai_history/second_ai_boom.md](../02_ai_history/second_ai_boom.md)
+- **知識獲得のボトルネック**: 知識の形式化が困難でコスト大、第二次ブーム衰退の主因 → [02_ai_history/second_ai_boom.md](../02_ai_history/second_ai_boom.md)
+- **常識の欠如**: エキスパートシステムが限定領域外の推論ができない問題 → [02_ai_history/second_ai_boom.md](../02_ai_history/second_ai_boom.md)
+- **第五世代コンピュータプロジェクト**: 日本の国家プロジェクト（1982～1992） → [02_ai_history/second_ai_boom.md](../02_ai_history/second_ai_boom.md)
+
 ## AI定義・哲学
 - **プランニング（STRIPS）**: 前提条件・行動・結果で行動計画を記述する古典的手法 → [03_ai_definition/planning.md](../03_ai_definition/planning.md)
 - **幅優先探索（BFS）**: 同階層のノードを全探索後に次階層へ進む探索手法 → [03_ai_definition/search_algorithms.md](../03_ai_definition/search_algorithms.md)
@@ -42,6 +57,12 @@
 - **カーネル関数**: RBF、多項式、線形カーネル等でデータを高次元空間に写像 → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
 - **サポートベクター**: 分離超平面に最も近いデータ点 → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
 - **マージン最大化**: クラス間の余白を最大化して汎化性能を向上 → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
+- **マルチタスク学習（Multi-Task Learning）**: 複数の関連タスクを同時に学習し、タスク間で知識を共有 → [05_machine_learning/multi_task_learning.md](../05_machine_learning/multi_task_learning.md)
+- **共有表現（Shared Representation）**: マルチタスク学習でタスク間で共有される特徴表現 → [05_machine_learning/multi_task_learning.md](../05_machine_learning/multi_task_learning.md)
+- **ハードパラメータ共有（Hard Parameter Sharing）**: 層を物理的に共有するマルチタスク学習の基本構造 → [05_machine_learning/multi_task_learning.md](../05_machine_learning/multi_task_learning.md)
+- **ソフトパラメータ共有（Soft Parameter Sharing）**: パラメータ間の距離を制約して共有 → [05_machine_learning/multi_task_learning.md](../05_machine_learning/multi_task_learning.md)
+- **負の転移（Negative Transfer）**: タスク間の干渉による性能低下 → [05_machine_learning/multi_task_learning.md](../05_machine_learning/multi_task_learning.md)
+- **タスクバランス（Task Balancing）**: 各タスクの損失の重み調整 → [05_machine_learning/multi_task_learning.md](../05_machine_learning/multi_task_learning.md)
 - **Actor-Critic**: Actorが行動選択、Criticが行動評価する強化学習手法 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
 - **Actor（行動者）**: 方策を学習し行動を選択 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
 - **Critic（評価者）**: 価値関数を学習し行動を評価 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
@@ -88,6 +109,20 @@
 - **ホールドアウト法**: データを1回だけ訓練・テストに分割する評価手法 → [05_machine_learning/cross_validation.md](../05_machine_learning/cross_validation.md)
 - **LOOCV（Leave-One-Out Cross-Validation）**: k=データ数の交差検証、小規模データ向き → [05_machine_learning/cross_validation.md](../05_machine_learning/cross_validation.md)
 - **層化k-分割（Stratified k-fold）**: 各foldでクラス比率を保持する交差検証 → [05_machine_learning/cross_validation.md](../05_machine_learning/cross_validation.md)
+- **過学習（Overfitting）**: 訓練データに過度に適合し未知データへの性能が低下する現象 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **未学習（Underfitting）**: モデルが単純すぎて訓練データすら学習できない状態 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **汎化（Generalization）**: 未知データに対する予測性能 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **汎化誤差（Generalization Error）**: テストデータでの誤差 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **汎化ギャップ（Generalization Gap）**: 訓練誤差とテスト誤差の差 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **バイアス-バリアンストレードオフ**: モデルの単純さと複雑さのバランス → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **ダブルディセント（Double Descent）**: モデルサイズ増加で性能が一度悪化後に再向上する現象 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **補間閾値（Interpolation Threshold）**: ダブルディセントで性能が最悪になる点、パラメータ数≈データ数 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **正則化（Regularization）**: 過学習を防ぐための制約、L1/L2正則化等 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **L1正則化（Lasso）**: 重みの絶対値の和で制約、スパース性を促進 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **L2正則化（Ridge）**: 重みの2乗和で制約、重みを小さく保つ → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **Dropout**: 訓練時にランダムにニューロンを無効化して過学習を防ぐ → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **Early Stopping**: 検証誤差が悪化し始めたら学習を停止 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **データ拡張（Data Augmentation）**: 訓練データを人工的に増やして過学習を防ぐ → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
 
 ## 深層学習
 - **ニューラルネットワーク基礎**: 入力層・中間層・出力層、活性化関数 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
@@ -95,8 +130,10 @@
 - **Sigmoid関数**: 2値分類の出力層で確率を計算（0～1） → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
 - **ReLU（Rectified Linear Unit）**: 勾配消失問題を解決する活性化関数、中間層で最も使われる → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
 - **勾配消失問題**: 深い層で勾配が0に近づき学習が進まない問題、ReLUで解決 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
-- **Leaky ReLU**: 負の領域にも小さな勾配を持たせDying ReLU対策 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
-- **Dying ReLU**: ReLUで負の入力ニューロンが活性化しなくなる問題 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **Leaky ReLU（リーキー ReLU）**: 負の領域にも小さな勾配（通常0.01）を持たせDying ReLU対策 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **Dying ReLU問題**: ReLUで負の入力ニューロンが活性化しなくなる問題、Leaky ReLUで解決 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **PReLU（Parametric ReLU）**: 負の領域の係数を学習可能なパラメータにしたReLU改良版 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **ELU（Exponential Linear Unit）**: 負の領域で指数関数的に滑らか、ノイズに頑健 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
 - **tanh**: -1～1の出力を持つ活性化関数、Sigmoidより0中心 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
 - **プルーニング（Pruning）**: 不要な重み・ニューロンを削除してモデルを軽量化 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
 - **構造化プルーニング**: ニューロン・フィルタ単位で削除、ハードウェア高速化可能 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
@@ -106,16 +143,32 @@
 - **知識蒸留（Knowledge Distillation）**: 大きいモデルから小さいモデルへ知識転移 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
 - **クレジット割り当て問題**: どのパラメータが誤差に寄与しているかを明らかにする問題 → [06_deep_learning/backpropagation.md](../06_deep_learning/backpropagation.md)
 - **誤差逆伝播法（Backpropagation）**: クレジット割り当て問題を解決する学習アルゴリズム → [06_deep_learning/backpropagation.md](../06_deep_learning/backpropagation.md)
-- **連鎖律（Chain Rule）**: 合成関数の微分法則、誤差逆伝播の数学的基礎 → [06_deep_learning/backpropagation.md](../06_deep_learning/backpropagation.md)
+- **連鎖律（Chain Rule）**: 合成関数の微分法則、誤差逆伝播で勾配を効率的に計算 → [06_deep_learning/backpropagation.md](../06_deep_learning/backpropagation.md)
 - **構造的クレジット割り当て**: どの重みが誤差に寄与しているかを決定 → [06_deep_learning/backpropagation.md](../06_deep_learning/backpropagation.md)
 - **時間的クレジット割り当て**: 時系列データでどの時点が影響したかを決定 → [06_deep_learning/backpropagation.md](../06_deep_learning/backpropagation.md)
 - **CNN（畳み込みニューラルネットワーク）**: 画像認識に特化した深層学習モデル → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
 - **ストライド（Stride）**: CNNでフィルタを移動させる幅 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
 - **パディング（Padding）**: CNNで入力画像の周囲に余白を追加する処理 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
 - **プーリング層**: CNNで特徴マップのダウンサンプリングを行う層 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **Dilated Convolution（拡張畳み込み）**: フィルタ要素間に穴を開けてパラメータ数を増やさず受容野を拡大 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **Dilation Rate（拡張率）**: Dilated Convolutionで穴の間隔を制御するパラメータ → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **受容野（Receptive Field）**: 各ニューロンが参照する入力領域、Dilated Convで効率的に拡大 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **ASPP（Atrous Spatial Pyramid Pooling）**: 異なるDilation Rateで並列畳み込み、DeepLabで使用 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **Atrous Convolution**: Dilated Convolutionの別名 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **Depthwise Separable Convolution**: 畳み込みを2段階（Depthwise + Pointwise）に分離し計算量を1/8～1/9に削減 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **Depthwise Convolution**: 各チャネルに対して独立に空間方向の畳み込みを実行 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **Pointwise Convolution**: 1×1畳み込みでチャネル間の情報を混合 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **MobileNet**: Depthwise Separable Convolutionを用いたモバイル向け軽量CNNモデル（Google, 2017） → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **Group Convolution**: チャネルをグループ分割して畳み込み、計算量削減 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **Global Average Pooling（GAP）**: 各特徴マップを空間方向に平均化、全結合層の代替で解釈性向上 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **CAM（Class Activation Mapping）**: GAPを使い判断に寄与した画像領域を可視化する手法 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **Grad-CAM**: CAMの改良版、勾配情報を利用して汎用的に可視化 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
 - **RNN（Recurrent Neural Network）**: 系列データを処理する再帰型ニューラルネットワーク → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
 - **隠れ状態（Hidden State）**: RNNで前の時刻の情報を保持するベクトル → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
-- **勾配消失問題**: RNNで勾配が減衰し長期依存性の学習が困難になる問題 → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
+- **勾配消失問題（RNN）**: RNNで勾配が減衰し長期依存性の学習が困難になる問題 → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
+- **BPTT（Backpropagation Through Time）**: RNNの学習手法、時間方向に展開して誤差逆伝播 → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
+- **Truncated BPTT（短縮版BPTT）**: 一定時間ステップのみ遡って勾配計算、計算コスト削減 → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
+- **勾配クリッピング（Gradient Clipping）**: 勾配爆発対策、勾配のノルムを閾値で切り詰め → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
 - **Encoder-Decoder**: 系列変換アーキテクチャ、機械翻訳に最適 → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
 - **Seq2Seq（Sequence-to-Sequence）**: 可変長入力→可変長出力の系列変換タスク → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
 - **LSTM（Long Short-Term Memory）**: セルステートと3つのゲートで長期依存を学習するRNN → [06_deep_learning/lstm_gru.md](../06_deep_learning/lstm_gru.md)
@@ -138,9 +191,31 @@
 - **BERT**: Transformer EncoderベースのNLPモデル、双方向学習 → [06_deep_learning/transformer.md](../06_deep_learning/transformer.md)
 - **GPT**: Transformer Decoderベースの生成モデル、自己回帰 → [06_deep_learning/transformer.md](../06_deep_learning/transformer.md)
 - **Vision Transformer（ViT）**: 画像をパッチ分割してTransformer適用 → [06_deep_learning/transformer.md](../06_deep_learning/transformer.md)
+- **パッチ分割（Patch Splitting）**: ViTで画像を固定サイズ（16×16等）に分割し系列化する処理 → [06_deep_learning/transformer.md](../06_deep_learning/transformer.md)
+- **平坦化（Flatten）**: ViTでパッチを2次元→1次元ベクトルに変換する処理 → [06_deep_learning/transformer.md](../06_deep_learning/transformer.md)
+- **[CLS]トークン**: ViTの分類用特殊トークン、系列先頭に追加 → [06_deep_learning/transformer.md](../06_deep_learning/transformer.md)
 - **Query、Key、Value**: Self-Attentionの3つの基本ベクトル → [06_deep_learning/transformer.md](../06_deep_learning/transformer.md)
 - **Masked Self-Attention**: Decoderで未来の情報を隠すマスク機構 → [06_deep_learning/transformer.md](../06_deep_learning/transformer.md)
 - **Feed-Forward Network**: Transformerの各層でAttention後に適用される全結合層 → [06_deep_learning/transformer.md](../06_deep_learning/transformer.md)
+- **生成モデル（Generative Model）**: データの確率分布を学習し新しいデータを生成するモデル → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **オートエンコーダ（Autoencoder, AE）**: 入力を潜在表現に圧縮し再構成する教師なし学習モデル → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **変分オートエンコーダ（VAE）**: 潜在変数に確率分布を導入したオートエンコーダ、滑らかな潜在空間 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **エンコーダ（Encoder）**: 入力を低次元の潜在表現に変換する部分 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **デコーダ（Decoder）**: 潜在表現から出力を生成・再構成する部分 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **再構成（Reconstruction）**: デコーダが元の入力を復元すること、AEとVAEの共通目的 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **潜在変数（Latent Variable）**: 低次元に圧縮されたデータ表現 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **再構成誤差（Reconstruction Error）**: 入力と再構成出力の差、AE/VAEの損失関数 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **KLダイバージェンス（Kullback-Leibler Divergence）**: VAEで潜在分布を正則化する項 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **再パラメータ化トリック（Reparameterization Trick）**: VAEでサンプリングを微分可能にする技法 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **GAN（敵対的生成ネットワーク）**: 生成器と識別器の敵対的学習で高品質生成 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **生成器（Generator）**: GANでランダムノイズから偽データを生成 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **識別器（Discriminator）**: GANで本物と偽物を区別 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **モード崩壊（Mode Collapse）**: GANで生成器が多様性を失う問題 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **デノイジングオートエンコーダ（DAE）**: ノイズ入力から元データを復元、ロバスト学習 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **CycleGAN**: ペア画像なしで双方向ドメイン変換を学習するGAN → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **Cycle Consistency Loss（循環一貫性損失）**: CycleGANで変換後に元に戻せることを保証する損失 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **Pix2Pix**: ペア画像を使った画像変換GAN（スケッチ→写真等） → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **DCGAN（Deep Convolutional GAN）**: 畳み込み層を使った画像生成GAN → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
 
 ## AI応用
 - **SSD（Single Shot MultiBox Detector）**: ワンステージ物体検出器、リアルタイム処理に適する → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
@@ -189,6 +264,38 @@
 - **役割指定（Role Prompting）**: AIに専門家等の役割を与える手法 → [07_ai_applications/prompt_engineering.md](../07_ai_applications/prompt_engineering.md)
 - **温度（Temperature）**: 生成のランダム性を制御するパラメータ → [07_ai_applications/prompt_engineering.md](../07_ai_applications/prompt_engineering.md)
 
+## AI社会・ビジネス
+- **ディープフェイク（Deepfake）**: 深層学習で生成される高精度な偽画像・偽動画、Deep Learning + Fake → [08_ai_society/deepfake.md](../08_ai_society/deepfake.md)
+- **Face Swap（顔入れ替え）**: 動画内の人物の顔を別人の顔に置換するディープフェイク技術 → [08_ai_society/deepfake.md](../08_ai_society/deepfake.md)
+- **合成メディア（Synthetic Media）**: AI生成の画像・動画・音声の総称 → [08_ai_society/deepfake.md](../08_ai_society/deepfake.md)
+- **偽情報（Misinformation/Disinformation）**: 誤った情報の拡散、ディープフェイクの主な悪用 → [08_ai_society/deepfake.md](../08_ai_society/deepfake.md)
+- **ディープフェイク検出（Deepfake Detection）**: 偽動画を識別する技術、生成技術とのいたちごっこ → [08_ai_society/deepfake.md](../08_ai_society/deepfake.md)
+- **CAI（Content Authenticity Initiative）**: コンテンツ真正性の業界標準化団体、Adobe等が推進 → [08_ai_society/deepfake.md](../08_ai_society/deepfake.md)
+- **C2PA**: コンテンツの出所・編集履歴を記録する標準規格 → [08_ai_society/deepfake.md](../08_ai_society/deepfake.md)
+- **デジタルウォーターマーク（Digital Watermark）**: 真正性を証明する電子透かし → [08_ai_society/deepfake.md](../08_ai_society/deepfake.md)
+- **CEO詐欺**: 経営者の声を模倣し従業員に送金指示する詐欺手法 → [08_ai_society/deepfake.md](../08_ai_society/deepfake.md)
+- **Liar's Dividend**: 本物の証拠も「ディープフェイクだ」と否定できる状況 → [08_ai_society/deepfake.md](../08_ai_society/deepfake.md)
+- **シンギュラリティ（Singularity）**: 人工知能が人類の知能を超える転換点、技術的特異点 → [08_ai_society/singularity.md](../08_ai_society/singularity.md)
+- **技術的特異点（Technological Singularity）**: シンギュラリティの正式名称 → [08_ai_society/singularity.md](../08_ai_society/singularity.md)
+- **レイ・カーツワイル（Ray Kurzweil）**: シンギュラリティを2045年に到来と予測、Google技術責任者 → [08_ai_society/singularity.md](../08_ai_society/singularity.md)
+- **収穫加速の法則（Law of Accelerating Returns）**: 技術進歩が指数関数的に加速するというカーツワイルの理論 → [08_ai_society/singularity.md](../08_ai_society/singularity.md)
+- **知能爆発（Intelligence Explosion）**: AIの知能が指数関数的に増大する現象 → [08_ai_society/singularity.md](../08_ai_society/singularity.md)
+- **再帰的自己改良（Recursive Self-Improvement）**: AIが自分自身を改良し続けるプロセス → [08_ai_society/singularity.md](../08_ai_society/singularity.md)
+- **超知能（Superintelligence）**: 人間の知能を大幅に超えるAI → [08_ai_society/singularity.md](../08_ai_society/singularity.md)
+- **ヴァーナー・ヴィンジ（Vernor Vinge）**: 1993年にシンギュラリティ概念を初めて本格提唱 → [08_ai_society/singularity.md](../08_ai_society/singularity.md)
+- **ニック・ボストロム（Nick Bostrom）**: 超知能のリスク研究、実存的脅威を警告 → [08_ai_society/singularity.md](../08_ai_society/singularity.md)
+- **ハードテイクオフ vs ソフトテイクオフ**: 超知能への到達速度の違い（数日 vs 数年） → [08_ai_society/singularity.md](../08_ai_society/singularity.md)
+- **価値アライメント問題（AI Alignment Problem）**: AIの目標を人類の価値観に整合させる困難さ → [08_ai_society/singularity.md](../08_ai_society/singularity.md)
+- **CRISP-DM**: データマイニングの標準プロセスモデル、6段階で構成 → [08_ai_society/data_utilization.md](../08_ai_society/data_utilization.md)
+- **ビジネス理解（Business Understanding）**: CRISP-DMの第1段階、プロジェクト目標を明確化 → [08_ai_society/data_utilization.md](../08_ai_society/data_utilization.md)
+- **データ理解（Data Understanding）**: CRISP-DMの第2段階、データの収集と特性把握 → [08_ai_society/data_utilization.md](../08_ai_society/data_utilization.md)
+- **データ準備（Data Preparation）**: CRISP-DMの第3段階、モデリング用データセットの構築 → [08_ai_society/data_utilization.md](../08_ai_society/data_utilization.md)
+- **モデリング（Modeling）**: CRISP-DMの第4段階、分析手法選択とモデル構築 → [08_ai_society/data_utilization.md](../08_ai_society/data_utilization.md)
+- **評価（Evaluation）**: CRISP-DMの第5段階、ビジネス観点でモデルを評価 → [08_ai_society/data_utilization.md](../08_ai_society/data_utilization.md)
+- **デプロイ（Deployment）**: CRISP-DMの第6段階、モデルを実運用環境に展開 → [08_ai_society/data_utilization.md](../08_ai_society/data_utilization.md)
+- **反復的プロセス**: CRISP-DMの特徴、各段階を行き来しながら改善 → [08_ai_society/data_utilization.md](../08_ai_society/data_utilization.md)
+- **業界横断標準**: CRISP-DMの特徴、あらゆる業界で適用可能 → [08_ai_society/data_utilization.md](../08_ai_society/data_utilization.md)
+
 ## 法律・倫理
 - **営業秘密**: 秘密管理性・有用性・非公知性の3要件で保護される情報 → [09_law_ethics/trade_secret.md](../09_law_ethics/trade_secret.md)
 - **不正競争防止法**: 営業秘密の保護を規定する法律 → [09_law_ethics/trade_secret.md](../09_law_ethics/trade_secret.md)
@@ -234,6 +341,20 @@
 ---
 
 ## 更新履歴
+- 2026/01/01: Depthwise Separable Convolution/MobileNet関連のキーワードを追加（軽量化CNN、Depthwise Convolution、Pointwise Convolution、計算量削減、モバイルAI等）
+- 2026/01/01: ディープフェイク関連のキーワードを追加（Face Swap、合成メディア、偽情報、検出技術、CAI、C2PA、デジタルウォーターマーク、CEO詐欺、Liar's Dividend等）
+- 2026/01/01: シンギュラリティ関連のキーワードを追加（技術的特異点、レイ・カーツワイル、2045年、知能爆発、再帰的自己改良、超知能、価値アライメント問題等）
+- 2026/01/01: 連鎖律（Chain Rule）の活用場面を詳細化、試験頻出パターンを追加
+- 2026/01/01: CycleGAN（ペア画像不要、Cycle Consistency Loss、Pix2Pix比較等）追加
+- 2026/01/01: 過学習・汎化（Overfitting、Underfitting、ダブルディセント、正則化、Dropout、Early Stopping等）追加
+- 2026/01/01: 生成モデル（オートエンコーダ、VAE、GAN、再構成、潜在変数、KLダイバージェンス等）追加
+- 2026/01/01: Global Average Pooling（GAP、CAM、解釈性向上、全結合層代替等）追加
+- 2026/01/01: Dilated Convolution（拡張畳み込み、Dilation Rate、受容野拡大、ASPP等）追加
+- 2026/01/01: CRISP-DM（ビジネス理解、データ理解、データ準備、モデリング、評価、デプロイ等）追加
+- 2026/01/01: 第二次AIブーム・エキスパートシステム（MYCIN、DENDRAL、知識獲得のボトルネック等）追加
+- 2026/01/01: マルチタスク学習（共有表現、ハード/ソフトパラメータ共有、負の転移等）追加
+- 2026/01/01: BPTT（Truncated BPTT、勾配クリッピング等）追加
+- 2026/01/01: Leaky ReLU詳細（Dying ReLU問題、PReLU、ELU等）追加
 - 2025/12/31: AIガバナンス（OECD原則、EU倫理GL、人間中心のAI社会原則、Ethics by Design等）追加
 - 2025/12/31: プルーニング（構造化/非構造化、スパース性、量子化、知識蒸留等）追加
 - 2025/12/31: 活性化関数（ReLU、勾配消失問題、Leaky ReLU、Dying ReLU、tanh等）詳細追加
