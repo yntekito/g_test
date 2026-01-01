@@ -29,6 +29,14 @@
 - **Cycプロジェクト**: 人間の常識を論理式で記述する試み（1984年～） → [03_ai_definition/frame_problem.md](../03_ai_definition/frame_problem.md)
 
 ## 機械学習
+- **損失関数（Loss Function）**: モデルの予測値と正解データとの差分を定量化する関数、学習時に最小化 → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
+- **コスト関数（Cost Function）**: 全訓練データの損失の平均（損失関数とほぼ同義） → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
+- **目的関数（Objective Function）**: 最適化の対象となる関数（損失+正則化項） → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
+- **MSE（Mean Squared Error）**: 回帰タスクの標準的損失関数、二乗誤差の平均 → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
+- **MAE（Mean Absolute Error）**: 外れ値に頑健な回帰誤差指標（誤差の絶対値） → [05_machine_learning/evaluation_metrics.md](../05_machine_learning/evaluation_metrics.md)
+- **交差エントロピー（Cross Entropy）**: 分類タスクの標準的損失関数、確率分布間の距離 → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
+- **Huber損失**: MSEとMAEのハイブリッド、外れ値に頑健かつ微分可能 → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
+- **ヒンジ損失（Hinge Loss）**: SVMで使用されるマージン最大化の損失関数 → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
 - **サポートベクターマシン（SVM）**: カーネルトリックで高次元写像し、マージン最大化で線形分離 → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
 - **カーネルトリック**: 明示的な高次元写像なしに内積を計算する技法 → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
 - **カーネル関数**: RBF、多項式、線形カーネル等でデータを高次元空間に写像 → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
@@ -46,6 +54,20 @@
 - **活用（Exploitation）**: 現在の知識で最良の行動を選ぶ → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
 - **ε-減衰（ε-decay）**: 学習進行に応じてεを減少させる手法 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
 - **探索と活用のトレードオフ**: 探索しすぎると報酬低下、活用しすぎると局所解 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **Sim-to-Real転移**: シミュレータで学習した方策を実環境に転移する技術 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **ドメインランダマイゼーション（Domain Randomization）**: シミュレータのパラメータをランダム化してロバスト方策を学習 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **シミュレーションギャップ（Reality Gap）**: シミュレータと実環境の差異 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **ドメイン適応（Domain Adaptation）**: 実データで方策を微調整する転移手法 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **システム同定（System Identification）**: 実環境の物理パラメータを推定してシミュレータを調整 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **教師なし学習（Unsupervised Learning）**: 正解ラベルなしでデータの構造・パターンを発見 → [05_machine_learning/unsupervised_learning.md](../05_machine_learning/unsupervised_learning.md)
+- **k-means法**: k個のクラスタ中心でデータをグループ化する基本的クラスタリング手法 → [05_machine_learning/unsupervised_learning.md](../05_machine_learning/unsupervised_learning.md)
+- **クラスタリング（Clustering）**: データを類似性に基づいてグループ分け → [05_machine_learning/unsupervised_learning.md](../05_machine_learning/unsupervised_learning.md)
+- **顧客セグメンテーション**: k-means法の代表的活用例、購買行動でグループ化 → [05_machine_learning/unsupervised_learning.md](../05_machine_learning/unsupervised_learning.md)
+- **エルボー法**: クラスタ内分散の変化から最適なk値を決定 → [05_machine_learning/unsupervised_learning.md](../05_machine_learning/unsupervised_learning.md)
+- **シルエット係数**: クラスタリングの質を評価する指標 → [05_machine_learning/unsupervised_learning.md](../05_machine_learning/unsupervised_learning.md)
+- **階層的クラスタリング**: データを階層的に統合・分割、デンドログラム作成 → [05_machine_learning/unsupervised_learning.md](../05_machine_learning/unsupervised_learning.md)
+- **次元削減（Dimensionality Reduction）**: 高次元データを低次元に圧縮 → [05_machine_learning/unsupervised_learning.md](../05_machine_learning/unsupervised_learning.md)
+- **PCA（主成分分析）**: 分散を最大化する軸を見つける次元削減手法 → [05_machine_learning/unsupervised_learning.md](../05_machine_learning/unsupervised_learning.md)
 - **RMSE（Root Mean Squared Error）**: 外れ値に敏感な回帰誤差指標（誤差を2乗） → [05_machine_learning/evaluation_metrics.md](../05_machine_learning/evaluation_metrics.md)
 - **MAE（Mean Absolute Error）**: 外れ値に頑健な回帰誤差指標（誤差の絶対値） → [05_machine_learning/evaluation_metrics.md](../05_machine_learning/evaluation_metrics.md)
 - **精度（Accuracy）**: 全予測のうち正解した割合。不均衡データでは注意 → [05_machine_learning/evaluation_metrics.md](../05_machine_learning/evaluation_metrics.md)
@@ -71,7 +93,17 @@
 - **ニューラルネットワーク基礎**: 入力層・中間層・出力層、活性化関数 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
 - **Softmax関数**: 多クラス分類で各クラスの確率を出力（合計1） → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
 - **Sigmoid関数**: 2値分類の出力層で確率を計算（0～1） → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
-- **ReLU**: 中間層で最も使われる活性化関数 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **ReLU（Rectified Linear Unit）**: 勾配消失問題を解決する活性化関数、中間層で最も使われる → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **勾配消失問題**: 深い層で勾配が0に近づき学習が進まない問題、ReLUで解決 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **Leaky ReLU**: 負の領域にも小さな勾配を持たせDying ReLU対策 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **Dying ReLU**: ReLUで負の入力ニューロンが活性化しなくなる問題 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **tanh**: -1～1の出力を持つ活性化関数、Sigmoidより0中心 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **プルーニング（Pruning）**: 不要な重み・ニューロンを削除してモデルを軽量化 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **構造化プルーニング**: ニューロン・フィルタ単位で削除、ハードウェア高速化可能 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **非構造化プルーニング**: 個別の重み単位で削除、高圧縮率 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **スパース性（Sparsity）**: ニューラルネットワークで0要素の割合 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **量子化（Quantization）**: パラメータの精度削減でモデル圧縮（32bit→8bit等） → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **知識蒸留（Knowledge Distillation）**: 大きいモデルから小さいモデルへ知識転移 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
 - **クレジット割り当て問題**: どのパラメータが誤差に寄与しているかを明らかにする問題 → [06_deep_learning/backpropagation.md](../06_deep_learning/backpropagation.md)
 - **誤差逆伝播法（Backpropagation）**: クレジット割り当て問題を解決する学習アルゴリズム → [06_deep_learning/backpropagation.md](../06_deep_learning/backpropagation.md)
 - **連鎖律（Chain Rule）**: 合成関数の微分法則、誤差逆伝播の数学的基礎 → [06_deep_learning/backpropagation.md](../06_deep_learning/backpropagation.md)
@@ -86,6 +118,16 @@
 - **勾配消失問題**: RNNで勾配が減衰し長期依存性の学習が困難になる問題 → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
 - **Encoder-Decoder**: 系列変換アーキテクチャ、機械翻訳に最適 → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
 - **Seq2Seq（Sequence-to-Sequence）**: 可変長入力→可変長出力の系列変換タスク → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
+- **LSTM（Long Short-Term Memory）**: セルステートと3つのゲートで長期依存を学習するRNN → [06_deep_learning/lstm_gru.md](../06_deep_learning/lstm_gru.md)
+- **セルステート（Cell State）**: LSTMの記憶素子、長期記憶を保持する「コンベア」 → [06_deep_learning/lstm_gru.md](../06_deep_learning/lstm_gru.md)
+- **メモリセル（Memory Cell）**: セルステートの別名、LSTMブロックの核心 → [06_deep_learning/lstm_gru.md](../06_deep_learning/lstm_gru.md)
+- **入力ゲート（Input Gate）**: 新情報をセルステートに追加する量を制御 → [06_deep_learning/lstm_gru.md](../06_deep_learning/lstm_gru.md)
+- **忘却ゲート（Forget Gate）**: 過去の情報をセルステートから削除する量を制御 → [06_deep_learning/lstm_gru.md](../06_deep_learning/lstm_gru.md)
+- **出力ゲート（Output Gate）**: セルステートから隠れ状態への出力を制御 → [06_deep_learning/lstm_gru.md](../06_deep_learning/lstm_gru.md)
+- **GRU（Gated Recurrent Unit）**: LSTMの簡略版、リセット・更新ゲートの2つで制御 → [06_deep_learning/lstm_gru.md](../06_deep_learning/lstm_gru.md)
+- **リセットゲート（Reset Gate）**: GRUで過去情報のリセット度を制御 → [06_deep_learning/lstm_gru.md](../06_deep_learning/lstm_gru.md)
+- **更新ゲート（Update Gate）**: GRUで過去と現在の情報の混合比率を制御 → [06_deep_learning/lstm_gru.md](../06_deep_learning/lstm_gru.md)
+- **勾配爆発問題（Exploding Gradient）**: 勾配が指数的に増大する問題、勾配クリッピングで対処 → [06_deep_learning/lstm_gru.md](../06_deep_learning/lstm_gru.md)
 - **コンテキストベクトル**: Encoderが生成する固定長の意味表現 → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
 - **Attention機構**: Decoderが入力の重要部分に注目する仕組み → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
 - **双方向RNN**: 順方向・逆方向の両方向から系列を処理 → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
@@ -151,6 +193,12 @@
 - **営業秘密**: 秘密管理性・有用性・非公知性の3要件で保護される情報 → [09_law_ethics/trade_secret.md](../09_law_ethics/trade_secret.md)
 - **不正競争防止法**: 営業秘密の保護を規定する法律 → [09_law_ethics/trade_secret.md](../09_law_ethics/trade_secret.md)
 - **AI倫理原則**: 人間中心・透明性・公平性・プライバシー・安全性・アカウンタビリティ・人間の監督 → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
+- **AIガバナンス**: AI開発・利用におけるリスク管理と倫理原則の実装体系 → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
+- **OECD AI原則**: 世界初の政府間AI合意、42カ国採択（2019） → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
+- **EU倫理ガイドライン**: 信頼できるAIの7要件、リスクベース分類 → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
+- **人間中心のAI社会原則**: 日本の内閣府が策定した7つの原則（2019） → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
+- **Ethics by Design**: 設計段階から倫理原則を組み込む開発手法 → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
+- **リスクベースアプローチ**: 高リスク領域では厳格、低リスクは柔軟対応 → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
 - **透明性（Transparency）**: AIの動作原理・データ利用・判断根拠の説明可能性 → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
 - **説明可能性（Explainability）**: 判断根拠を説明できる技術的能力（XAI） → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
 - **分析対象者**: データが収集・分析される本人。直接ユーザーでなくても説明を受ける権利あり → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
@@ -186,6 +234,11 @@
 ---
 
 ## 更新履歴
+- 2025/12/31: AIガバナンス（OECD原則、EU倫理GL、人間中心のAI社会原則、Ethics by Design等）追加
+- 2025/12/31: プルーニング（構造化/非構造化、スパース性、量子化、知識蒸留等）追加
+- 2025/12/31: 活性化関数（ReLU、勾配消失問題、Leaky ReLU、Dying ReLU、tanh等）詳細追加
+- 2025/12/31: 教師なし学習（k-means法、クラスタリング、次元削減、PCA、顧客セグメンテーション等）追加
+- 2025/12/31: Sim-to-Real転移（ドメインランダマイゼーション、ドメイン適応、システム同定等）追加
 - 2025/12/31: ε-greedy方策（探索と活用のトレードオフ、ε-減衰等）追加
 - 2025/12/31: 情報理論（エントロピー、相互情報量、KLダイバージェンス、クロスエントロピー等）追加
 - 2025/12/31: フレーム問題・常識の問題・シンボルグラウンディング問題（資格問題、Cycプロジェクト等）追加
