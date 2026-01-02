@@ -184,8 +184,11 @@ $$\min_G \max_D \mathbb{E}_{x \sim p_{data}}[\log D(x)] + \mathbb{E}_{z \sim p_z
 #### GANの種類
 
 **DCGAN（Deep Convolutional GAN）**：
-- 畳み込み層を使用
-- 画像生成で高品質
+- **ジェネレータとディスクリミネータに畳み込み層（CNN）を導入**
+- 従来のGANは全結合層のみだったが、DCGANは畳み込み構造を採用
+- **高解像度画像生成**が可能（64×64以上）
+- 学習の安定性が向上
+- 主要技術：Strided Convolution、Batch Normalization、全結合層の排除
 
 **CGAN（Conditional GAN）**：
 - 条件（ラベル）を与えて生成
@@ -349,6 +352,7 @@ $$L_{total} = \underbrace{L_{GAN}(G, D_B)}_{\text{敵対的損失}} + \underbrac
   - 「VAEが標準AEより生成に優れる理由は？」→ 潜在空間が確率分布で滑らか
   - 「GANの学習方法は？」→ 生成器と識別器の敵対的学習
   - 「GANの課題は？」→ モード崩壊、学習の不安定性
+  - **「DCGANは生成器と識別器に（畳み込み層/CNN）を用いることで高解像度画像生成を実現」** ← 頻出穴埋め
   - 「CycleGANの特徴は？」→ **ペア画像なしで双方向のドメイン変換が可能**
   - 「Pix2PixとCycleGANの違いは？」→ ペア画像の必要性（必要 vs 不要）
 - **比較されやすい概念**：

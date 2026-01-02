@@ -108,8 +108,11 @@
 - **k-分割交差検証（k-fold Cross-Validation）**: データをk個に分割し各回1つをテスト・残りを訓練として繰り返し評価 → [05_machine_learning/cross_validation.md](../05_machine_learning/cross_validation.md)
 - **ホールドアウト法**: データを1回だけ訓練・テストに分割する評価手法 → [05_machine_learning/cross_validation.md](../05_machine_learning/cross_validation.md)
 - **LOOCV（Leave-One-Out Cross-Validation）**: k=データ数の交差検証、小規模データ向き → [05_machine_learning/cross_validation.md](../05_machine_learning/cross_validation.md)
-- **層化k-分割（Stratified k-fold）**: 各foldでクラス比率を保持する交差検証 → [05_machine_learning/cross_validation.md](../05_machine_learning/cross_validation.md)
-- **過学習（Overfitting）**: 訓練データに過度に適合し未知データへの性能が低下する現象 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **層化k-分割（Stratified k-fold）**: 各foldでクラス比率を保持する交差検証 → [05_machine_learning/cross_validation.md](../05_machine_learning/cross_validation.md)- **転移学習（Transfer Learning）**: 別タスクで学習した知識を新タスクに活用、少量データで高精度実現 → [05_machine_learning/transfer_learning.md](../05_machine_learning/transfer_learning.md)
+- **ファインチューニング（Fine-tuning）**: 事前学習済みモデルの重みを新タスクで微調整する転移学習の代表的手法 → [05_machine_learning/transfer_learning.md](../05_machine_learning/transfer_learning.md)
+- **事前学習（Pre-training）**: 大規模データで汎用的な特徴を学習、転移学習の基盤 → [05_machine_learning/transfer_learning.md](../05_machine_learning/transfer_learning.md)
+- **ドメイン適応（Domain Adaptation）**: ソースとターゲットのデータ分布の違いに対処する手法 → [05_machine_learning/transfer_learning.md](../05_machine_learning/transfer_learning.md)
+- **特徴抽出器（Feature Extractor）**: 事前学習モデルを固定して特徴量として利用 → [05_machine_learning/transfer_learning.md](../05_machine_learning/transfer_learning.md)- **過学習（Overfitting）**: 訓練データに過度に適合し未知データへの性能が低下する現象 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
 - **未学習（Underfitting）**: モデルが単純すぎて訓練データすら学習できない状態 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
 - **汎化（Generalization）**: 未知データに対する予測性能 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
 - **汎化誤差（Generalization Error）**: テストデータでの誤差 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
@@ -123,6 +126,28 @@
 - **Dropout**: 訓練時にランダムにニューロンを無効化して過学習を防ぐ → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
 - **Early Stopping**: 検証誤差が悪化し始めたら学習を停止 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
 - **データ拡張（Data Augmentation）**: 訓練データを人工的に増やして過学習を防ぐ → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **ノーフリーランチの定理（No Free Lunch Theorem）**: すべての問題に対して万能な最強のアルゴリズムは存在しない、問題に応じた選択が必須 → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
+- **NFL定理（No Free Lunch Theorem）**: すべての最適化問題の平均性能はどのアルゴリズムでも等しい（Wolpert, 1997） → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
+- **帰納的バイアス（Inductive Bias）**: 各アルゴリズムが持つ問題への仮定（線形性、局所性等）、NFL定理の前提 → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
+- **万能近似定理（Universal Approximation Theorem）**: ニューラルネットは任意の関数を近似可能、NFL定理と矛盾しない → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
+
+## 法律・倫理
+- **個人情報保護法**: 個人情報の適正な取扱いを定める法律（2003年制定、2020年・2022年改正） → [09_law_ethics/personal_data_protection.md](../09_law_ethics/personal_data_protection.md)
+- **仮名加工情報**: 特定個人を識別できないよう加工、内部分析用、第三者提供原則禁止 → [09_law_ethics/personal_data_protection.md](../09_law_ethics/personal_data_protection.md)
+- **匿名加工情報**: 復元不可能に加工、第三者提供可能、本人同意不要 → [09_law_ethics/personal_data_protection.md](../09_law_ethics/personal_data_protection.md)
+- **個人識別符号**: マイナンバー、運転免許証番号、指紋、顔認証データ等 → [09_law_ethics/personal_data_protection.md](../09_law_ethics/personal_data_protection.md)
+- **要配慮個人情報**: 人種、信条、病歴、犯罪歴等、差別・偏見の原因となる情報 → [09_law_ethics/personal_data_protection.md](../09_law_ethics/personal_data_protection.md)
+- **第三者提供**: 仮名加工情報は原則禁止、匿名加工情報は可能 → [09_law_ethics/personal_data_protection.md](../09_law_ethics/personal_data_protection.md)
+- **アルゴリズムバイアス（Algorithmic Bias）**: AIが特定属性で不公平判断、訓練データの偏りが主原因 → [09_law_ethics/bias_and_fairness.md](../09_law_ethics/bias_and_fairness.md)
+- **訓練データのバイアス**: 過去の差別的慣行や偏った収集方法がデータに反映 → [09_law_ethics/bias_and_fairness.md](../09_law_ethics/bias_and_fairness.md)
+- **サンプリングバイアス**: データ収集時の偏り（特定集団の過少/過剰代表） → [09_law_ethics/bias_and_fairness.md](../09_law_ethics/bias_and_fairness.md)
+- **プロキシ変数（代理変数）**: 保護属性と相関する変数（郵便番号→人種等）で間接差別 → [09_law_ethics/bias_and_fairness.md](../09_law_ethics/bias_and_fairness.md)
+- **統計的公平性（Demographic Parity）**: 各グループで陽性予測率が等しい → [09_law_ethics/bias_and_fairness.md](../09_law_ethics/bias_and_fairness.md)
+- **機会の平等（Equal Opportunity）**: 真陽性率が各グループで等しい → [09_law_ethics/bias_and_fairness.md](../09_law_ethics/bias_and_fairness.md)
+- **個人的公平性（Individual Fairness）**: 類似個人に類似判断 → [09_law_ethics/bias_and_fairness.md](../09_law_ethics/bias_and_fairness.md)
+- **COMPAS問題**: 再犯予測システムが黒人に不利（ProPublica調査） → [09_law_ethics/bias_and_fairness.md](../09_law_ethics/bias_and_fairness.md)
+- **公平性のトレードオフ**: 異なる公平性基準を同時に満たすのは困難 → [09_law_ethics/bias_and_fairness.md](../09_law_ethics/bias_and_fairness.md)
+- **フィードバックループ**: バイアスある予測が偏ったデータ蓄積を生みバイアス増幅 → [09_law_ethics/bias_and_fairness.md](../09_law_ethics/bias_and_fairness.md)
 
 ## 深層学習
 - **ニューラルネットワーク基礎**: 入力層・中間層・出力層、活性化関数 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
@@ -139,8 +164,14 @@
 - **構造化プルーニング**: ニューロン・フィルタ単位で削除、ハードウェア高速化可能 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
 - **非構造化プルーニング**: 個別の重み単位で削除、高圧縮率 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
 - **スパース性（Sparsity）**: ニューラルネットワークで0要素の割合 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
-- **量子化（Quantization）**: パラメータの精度削減でモデル圧縮（32bit→8bit等） → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
-- **知識蒸留（Knowledge Distillation）**: 大きいモデルから小さいモデルへ知識転移 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **量子化（Quantization）**: パラメータ精度削減（FP32→INT8）でモデル圧縮、メモリ1/4、推論高速化 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **学習後量子化（PTQ）**: 学習済みモデルを直接量子化、再学習不要 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **量子化認識学習（QAT）**: 学習時に量子化を考慮、精度低下最小 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **知識蒸留（Knowledge Distillation）**: 教師モデルから生徒モデルへ知識転移、小モデルで高精度実現 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **教師モデル（Teacher Model）**: 大規模で高精度なモデル、知識蒸留の知識源 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **生徒モデル（Student Model）**: 小規模で軽量、教師から知識を学ぶ → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **ソフトターゲット（Soft Target）**: 教師の出力確率分布、クラス間関係を含む → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **温度パラメータ（Temperature）**: Softmaxの滑らかさ調整、蒸留で重要 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
 - **クレジット割り当て問題**: どのパラメータが誤差に寄与しているかを明らかにする問題 → [06_deep_learning/backpropagation.md](../06_deep_learning/backpropagation.md)
 - **誤差逆伝播法（Backpropagation）**: クレジット割り当て問題を解決する学習アルゴリズム → [06_deep_learning/backpropagation.md](../06_deep_learning/backpropagation.md)
 - **連鎖律（Chain Rule）**: 合成関数の微分法則、誤差逆伝播で勾配を効率的に計算 → [06_deep_learning/backpropagation.md](../06_deep_learning/backpropagation.md)
@@ -160,9 +191,18 @@
 - **Pointwise Convolution**: 1×1畳み込みでチャネル間の情報を混合 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
 - **MobileNet**: Depthwise Separable Convolutionを用いたモバイル向け軽量CNNモデル（Google, 2017） → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
 - **Group Convolution**: チャネルをグループ分割して畳み込み、計算量削減 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **EfficientNet**: Compound Scaling（複合スケーリング）で深さ・幅・解像度を同時最適化（Google, 2019） → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **Compound Scaling（複合スケーリング）**: ネットワークの深さ・幅・解像度を複合係数で統一的にスケーリング → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **Compound Coefficient（複合係数）**: EfficientNetでスケーリング度合いを制御するパラメータφ → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **NAS（Neural Architecture Search）**: ネットワーク構造を自動設計する手法、EfficientNet-B0に使用 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
 - **Global Average Pooling（GAP）**: 各特徴マップを空間方向に平均化、全結合層の代替で解釈性向上 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
 - **CAM（Class Activation Mapping）**: GAPを使い判断に寄与した画像領域を可視化する手法 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
 - **Grad-CAM**: CAMの改良版、勾配情報を利用して汎用的に可視化 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **スケーリング法則（Scaling Laws）**: パラメーター数・データ量・計算量の増加に伴いAI性能が向上する法則、べき乗則に従う → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **べき乗則（Power Law）**: スケーリング法則でモデルサイズと性能の関係を表す式（$L \propto N^{-\alpha}$） → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **Chinchillaの法則**: モデルサイズとデータ量の最適配分比率を示す法則（DeepMind, 2022） → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **収穫逓減（Diminishing Returns）**: スケーリング法則で規模拡大の効果が徐々に小さくなる現象 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
+- **創発能力（Emergent Abilities）**: モデル規模が一定を超えると新しい能力が突然出現する現象 → [06_deep_learning/neural_network_basics.md](../06_deep_learning/neural_network_basics.md)
 - **RNN（Recurrent Neural Network）**: 系列データを処理する再帰型ニューラルネットワーク → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
 - **隠れ状態（Hidden State）**: RNNで前の時刻の情報を保持するベクトル → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
 - **勾配消失問題（RNN）**: RNNで勾配が減衰し長期依存性の学習が困難になる問題 → [06_deep_learning/rnn.md](../06_deep_learning/rnn.md)
@@ -219,6 +259,14 @@
 
 ## AI応用
 - **SSD（Single Shot MultiBox Detector）**: ワンステージ物体検出器、リアルタイム処理に適する → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **YOLO（You Only Look Once）**: グリッド分割によるワンステージ物体検出、高速 → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **R-CNN（Region-based CNN）**: Selective Searchで領域候補抽出→CNN分類のツーステージ物体検出（2014年） → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **Fast R-CNN**: RoI Pooling導入でR-CNNを高速化（2015年） → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **Faster R-CNN**: RPN導入でEnd-to-End学習、高精度物体検出（2015年） → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **Mask R-CNN**: Faster R-CNNにマスク生成追加、インスタンスセグメンテーション（2017年） → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **Selective Search**: R-CNNで使用される領域候補生成アルゴリズム → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **RPN（Region Proposal Network）**: 学習可能な領域候補生成ネットワーク、Faster R-CNNで導入 → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **RoI Pooling**: 可変サイズの領域を固定サイズに変換、Fast R-CNNで導入 → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
 - **ワンステージ検出器**: 位置とクラスを1回の順伝播で同時予測（SSD、YOLO） → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
 - **ツーステージ検出器**: 領域候補生成→分類の2段階処理（R-CNN系） → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
 - **物体検出**: 画像内の物体位置（バウンディングボックス）とクラスを特定 → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
@@ -237,6 +285,24 @@
 - **WaveNet**: 1D-CNNによる音声波形生成 → [07_ai_applications/speech_processing.md](../07_ai_applications/speech_processing.md)
 - **1D-CNN**: 時間方向の畳み込み、音声処理に有効 → [07_ai_applications/speech_processing.md](../07_ai_applications/speech_processing.md)
 - **Whisper**: Transformer型の音声認識モデル、OpenAI開発 → [07_ai_applications/speech_processing.md](../07_ai_applications/speech_processing.md)
+- **画像オープンデータセット**: 誰でもアクセス・再利用可能な画像データ集合、ImageNet/MNIST/COCO等 → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **ImageNet**: 1400万枚、2万カテゴリ、深層学習発展の起点となった大規模データセット → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **MNIST**: 手書き数字7万枚、機械学習の"Hello World"、初学者向け定番 → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **CIFAR-10/100**: 6万枚の小画像（32×32）、10または100クラス → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **COCO**: 33万枚、物体検出・セグメンテーション用、バウンディングボックス付き → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **Pascal VOC**: 2万枚、物体検出の標準ベンチマーク → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **Open Images**: Google提供の900万枚以上の大規模データセット → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **オープンデータの定義**: アクセス・再利用・再配布の自由、技術的・法的障壁なし → [07_ai_applications/image_recognition.md](../07_ai_applications/image_recognition.md)
+- **レコメンデーションシステム（推薦システム）**: ユーザーの嗜好を分析し最適なアイテムを推薦するシステム → [07_ai_applications/recommendation_system.md](../07_ai_applications/recommendation_system.md)
+- **協調フィルタリング（Collaborative Filtering）**: ユーザー間/アイテム間の類似性に基づく推薦手法 → [07_ai_applications/recommendation_system.md](../07_ai_applications/recommendation_system.md)
+- **ユーザーベース協調フィルタリング（User-based CF）**: 類似ユーザーの評価から推薦 → [07_ai_applications/recommendation_system.md](../07_ai_applications/recommendation_system.md)
+- **アイテムベース協調フィルタリング（Item-based CF）**: 類似アイテムの評価から推薦 → [07_ai_applications/recommendation_system.md](../07_ai_applications/recommendation_system.md)
+- **コンテンツベースフィルタリング（Content-based Filtering）**: アイテムの特徴（メタデータ）に基づく推薦 → [07_ai_applications/recommendation_system.md](../07_ai_applications/recommendation_system.md)
+- **ハイブリッド推薦**: 協調フィルタリングとコンテンツベースを組み合わせ → [07_ai_applications/recommendation_system.md](../07_ai_applications/recommendation_system.md)
+- **コールドスタート問題（Cold Start Problem）**: 新規ユーザー/アイテムに対する推薦が困難な問題 → [07_ai_applications/recommendation_system.md](../07_ai_applications/recommendation_system.md)
+- **行列因子分解（Matrix Factorization）**: ユーザー-アイテム評価行列を低次元行列に分解 → [07_ai_applications/recommendation_system.md](../07_ai_applications/recommendation_system.md)
+- **コサイン類似度（Cosine Similarity）**: ベクトル間の角度で類似性を測る指標 → [07_ai_applications/recommendation_system.md](../07_ai_applications/recommendation_system.md)
+- **ピアソン相関係数（Pearson Correlation）**: 2変数間の線形相関の強さを測る指標 → [07_ai_applications/recommendation_system.md](../07_ai_applications/recommendation_system.md)
 
 ## 自然言語処理（NLP）
 - **形態素解析（Morphological Analysis）**: 文を形態素（意味の最小単位）に分割し品詞を判別 → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
@@ -337,10 +403,32 @@
 - **クロスエントロピー（Cross Entropy）**: 分類問題の損失関数 → [10_math_statistics/information_theory.md](../10_math_statistics/information_theory.md)
 - **条件付きエントロピー（Conditional Entropy）**: Xを知った後のYの不確実性 → [10_math_statistics/information_theory.md](../10_math_statistics/information_theory.md)
 - **情報利得（Information Gain）**: 決定木で分岐時のエントロピー減少量 → [10_math_statistics/information_theory.md](../10_math_statistics/information_theory.md)
+- **最適化（Optimization）**: 損失関数を最小化するパラメータを見つける手法 → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
+- **勾配降下法（Gradient Descent）**: 勾配の逆方向にパラメータを更新する最適化手法 → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
+- **局所最適解（Local Optimum）**: 探索範囲内で最適だが全体では最適でない可能性がある解 → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
+- **大域最適解（Global Optimum）**: 全体で最も良い解、全パラメータ空間で最小 → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
+- **学習率（Learning Rate）**: パラメータ更新の幅を制御するハイパーパラメータ → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
+- **学習率減衰（Learning Rate Decay）**: 学習の進行に応じて学習率を小さくする手法 → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
+- **モメンタム（Momentum）**: 1990年代提唱、過去の勾配を慣性として利用し鞍点・局所解を脱出、Adamに採用 → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
+- **Adam（Adaptive Moment Estimation）**: モメンタムと適応的学習率を組み合わせた最適化手法、現在最も広く使われる → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
+- **SGD（確率的勾配降下法）**: 1サンプルごとに勾配を計算して更新する手法 → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
+- **ミニバッチ勾配降下法**: 小さなバッチで勾配を計算、現在の標準手法 → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
+- **鞍点（Saddle Point）**: 一部方向で極小・別方向で極大、勾配0で停滞、モメンタムで突破 → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
 
 ---
 
 ## 更新履歴
+- 2026/01/02: 正則化選択肢問題対策（不適切パターン、データ拡張との違い、L1/L2比較、判定フロー等）追加
+- 2026/01/02: 量子化・知識蒸留詳細（PTQ/QAT、FP32→INT8、教師・生徒モデル、ソフトターゲット、温度パラメータ、実例等）追加
+- 2026/01/02: 転移学習（Transfer Learning、ファインチューニング、事前学習、ドメイン適応、データ効率、穴埋め問題対策等）追加
+- 2026/01/02: 個人情報保護法・仮名加工情報（内部分析のみ、第三者提供原則禁止、匿名加工情報との違い、選択肢問題対策等）追加
+- 2026/01/02: モメンタム・鞍点問題詳細（1990年代提唱、Adamへの採用、学習停滞防止等）追加
+- 2026/01/02: 最適化関連のキーワードを追加（勾配降下法、局所最適解、大域最適解、学習率、モメンタム、Adam、SGD等）
+- 2026/01/02: EfficientNet関連のキーワードを追加（Compound Scaling、Compound Coefficient、NAS、深さ・幅・解像度の複合スケーリング等）
+- 2026/01/02: 画像オープンデータセット関連のキーワードを追加（ImageNet、MNIST、CIFAR、COCO、Pascal VOC、Open Images、オープンデータの定義等）
+- 2026/01/02: レコメンデーションシステム関連のキーワードを追加（協調フィルタリング、コンテンツベースフィルタリング、ハイブリッド推薦、コールドスタート問題、行列因子分解、コサイン類似度、ピアソン相関係数等）
+- 2026/01/02: 最適化手法と局所・大域最適解の関連キーワードを追加（局所最適解、大域最適解、勾配降下法、学習率減衰、モーメンタム、Adam、鞍点、多峰性関数等）
+- 2026/01/01: EfficientNet関連のキーワードを追加（Compound Scaling、Compound Coefficient、深さスケーリング、幅スケーリング、解像度スケーリング、NAS、MBConv、B0〜B7シリーズ等）
 - 2026/01/01: Depthwise Separable Convolution/MobileNet関連のキーワードを追加（軽量化CNN、Depthwise Convolution、Pointwise Convolution、計算量削減、モバイルAI等）
 - 2026/01/01: ディープフェイク関連のキーワードを追加（Face Swap、合成メディア、偽情報、検出技術、CAI、C2PA、デジタルウォーターマーク、CEO詐欺、Liar's Dividend等）
 - 2026/01/01: シンギュラリティ関連のキーワードを追加（技術的特異点、レイ・カーツワイル、2045年、知能爆発、再帰的自己改良、超知能、価値アライメント問題等）
@@ -348,6 +436,8 @@
 - 2026/01/01: CycleGAN（ペア画像不要、Cycle Consistency Loss、Pix2Pix比較等）追加
 - 2026/01/01: 過学習・汎化（Overfitting、Underfitting、ダブルディセント、正則化、Dropout、Early Stopping等）追加
 - 2026/01/01: 生成モデル（オートエンコーダ、VAE、GAN、再構成、潜在変数、KLダイバージェンス等）追加
+- 2026/01/02: アルゴリズムバイアス・公平性（訓練データの偏り、プロキシ変数、統計的公平性、COMPAS、フィードバックループ、選択肢問題対策等）追加
+- 2026/01/02: 活性化関数G検定選択肢問題対策（正解パターン、誤答識別、判定フロー等）追加
 - 2026/01/01: Global Average Pooling（GAP、CAM、解釈性向上、全結合層代替等）追加
 - 2026/01/01: Dilated Convolution（拡張畳み込み、Dilation Rate、受容野拡大、ASPP等）追加
 - 2026/01/01: CRISP-DM（ビジネス理解、データ理解、データ準備、モデリング、評価、デプロイ等）追加

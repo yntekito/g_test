@@ -626,7 +626,243 @@ model = Sequential([
 **軽量化CNNの登場**：
 - **MobileNet（Google, 2017）**：モバイル端末向けの軽量化モデル
 - **ShuffleNet（2018）**：チャネルシャッフルによる軽量化
-- **EfficientNet（2019）**：精度と効率のバランス最適化
+- **EfficientNet（Google, 2019）**：Compound Scalingで精度と効率のバランス最適化
+
+---
+
+## EfficientNet（効率的なネットワーク）
+
+### 要点
+EfficientNetは2019年にGoogleが提案した、**ネットワークの深さ（depth）・幅（width）・解像度（resolution）の3つの次元を複合的にスケーリングする手法（Compound Scaling）**を導入したCNNアーキテクチャ。従来は1つの次元のみをスケールアップしていたが、EfficientNetは3次元を同時にバランス良くスケールすることで、少ないパラメータで高精度を実現。
+
+### 定義
+**EfficientNet**は、Compound Coefficient（複合係数）$\phi$ を用いて、深さ・幅・解像度を統一的にスケーリングするニューラルネットワーク設計手法。以下の式でスケーリング：
+
+- **深さ（層数）**: $d = \alpha^\phi$
+- **幅（チャネル数）**: $w = \beta^\phi$
+- **解像度（画像サイズ）**: $r = \gamma^\phi$
+
+制約条件：$\alpha \cdot \beta^2 \cdot \gamma^2 \approx 2$（計算量が約2倍になるように調整）
+
+### 重要キーワード
+- **Compound Scaling（複合スケーリング）**: 深さ・幅・解像度を同時にスケーリングする手法
+- **Compound Coefficient（複合係数）**: $\phi$、スケーリングの度合いを制御するパラメータ
+- **深さ（Depth）**: ネットワークの層数
+- **幅（Width）**: 各層のチャネル数（フィルタ数）
+- **解像度（Resolution）**: 入力画像のサイズ（例：224×224、380×380）
+- **NAS（Neural Architecture Search）**: ベースとなるEfficientNet-B0を自動設計
+- **MBConv（Mobile Inverted Bottleneck Convolution）**: MobileNetV2のInverted Residualブロック
+
+### 詳細
+
+#### 従来のスケーリング手法の問題点
+
+**1つの次元のみのスケーリング**：
+- **深さのみ増加**（ResNet18→ResNet152）: 計算量増大、勾配消失リスク
+- **幅のみ増加**（チャネル数倍増）: 細かい特徴は捉えにくい
+- **解像度のみ増加**（224→384）: 計算量が大幅増加
+
+**問題**：
+- バランスが悪く、精度向上が頭打ちになる
+- 計算量に対する精度の伸びが悪い（効率が低い）
+
+#### Compound Scalingの原理
+
+**3つの次元を同時にバランス良くスケーリング**：
+
+```
+ベースネットワーク（EfficientNet-B0）
+  深さ=d₀, 幅=w₀, 解像度=r₀
+  ↓
+複合係数 φ を設定（φ=1, 2, 3, ...）
+  ↓
+深さ: d = α^φ · d₀
+幅:   w = β^φ · w₀
+解像度: r = γ^φ · r₀
+  ↓
+EfficientNet-B1, B2, ..., B7
+（φが大きいほど大規模・高精度）
+```
+
+**制約条件の意味**：
+$$\alpha \cdot \beta^2 \cdot \gamma^2 \approx 2$$
+
+- **理由**: 深さは線形に、幅と解像度は2乗で計算量に影響
+- **$\phi$ が1増えると計算量が約2倍**になるように調整
+- **$\alpha, \beta, \gamma$ は事前にグリッドサーチで最適化**（EfficientNet-B0で$\alpha=1.2, \beta=1.1, \gamma=1.15$）
+
+#### 具体例：EfficientNet-B0からB7へのスケーリング
+
+| モデル | $\phi$ | 深さ | 幅 | 解像度 | パラメータ数 | Top-1精度 |
+|--------|--------|------|-----|--------|------------|-----------|
+| **B0** | 0 | 基準 | 基準 | 224×224 | 5.3M | 77.1% |
+| **B1** | 1 | 1.2倍 | 1.1倍 | 240×240 | 7.8M | 79.1% |
+| **B2** | 2 | 1.4倍 | 1.2倍 | 260×260 | 9.2M | 80.1% |
+| **B3** | 3 | 1.7倍 | 1.3倍 | 300×300 | 12M | 81.6% |
+| **B4** | 4 | 2.1倍 | 1.4倍 | 380×380 | 19M | 82.9% |
+| **B5** | 5 | 2.5倍 | 1.6倍 | 456×456 | 30M | 83.6% |
+| **B6** | 6 | 3.0倍 | 1.8倍 | 528×528 | 43M | 84.0% |
+| **B7** | 7 | 3.6倍 | 2.0倍 | 600×600 | 66M | 84.3% |
+
+**特徴**：
+- B0: 軽量（5.3M）だが高精度（77.1%）
+- B7: 最高精度（84.3%）だが大規模（66M）
+- **用途に応じてB0～B7を選択**（モバイルならB0、サーバーならB7）
+
+#### EfficientNet-B0のベースアーキテクチャ
+
+**設計手法**：
+- **NAS（Neural Architecture Search）**で自動設計
+- **MBConv（Mobile Inverted Bottleneck Convolution）**ブロックを使用
+- Squeeze-and-Excitation（SE）ブロックでチャネル重み付け
+
+**基本構造**：
+```
+入力（224×224×3）
+  ↓
+Conv 3×3
+  ↓
+MBConvブロック × 16（複数段）
+  ↓
+Conv 1×1
+  ↓
+Global Average Pooling
+  ↓
+全結合層（分類）
+```
+
+**MBConvブロック**：
+1. 1×1畳み込み（チャネル拡張）
+2. Depthwise Convolution 3×3または5×5
+3. Squeeze-and-Excitation
+4. 1×1畳み込み（チャネル削減）
+5. Residual接続
+
+### 他のモデルとの比較
+
+#### ResNet vs EfficientNet
+
+| 項目 | ResNet-50 | EfficientNet-B4 |
+|------|-----------|-----------------|
+| **パラメータ数** | 25.6M | **19M**（少ない） |
+| **ImageNet精度** | 76.0% | **82.9%**（高い） |
+| **計算量（GFLOPS）** | 4.1 | 4.2（ほぼ同じ） |
+| **スケーリング** | 深さのみ | **3次元複合** |
+
+**結論**：EfficientNetは**同じ計算量で約7%高精度**
+
+#### MobileNet vs EfficientNet
+
+| 項目 | MobileNetV2 | EfficientNet-B0 |
+|------|-------------|-----------------|
+| **パラメータ数** | 3.5M | **5.3M** |
+| **ImageNet精度** | 72.0% | **77.1%**（高い） |
+| **設計** | 手動設計 | **NAS**（自動） |
+| **スケーリング** | 幅係数のみ | **3次元複合** |
+
+**結論**：EfficientNet-B0は**少ないパラメータ増加で5%高精度**
+
+### 試験での問われ方
+
+#### 典型問題：複合係数によるスケーリング
+
+> 「3つのハイパーパラメータ（深さ・広さ・解像度）を調整するCompound Coefficient（複合係数）を導入することで精度を高めている手法について、最も適切な選択肢を1つ選べ。」
+
+✅ **正解**：**EfficientNet**
+
+❌ **不適切な選択肢**：
+- ResNet → 深さのみスケーリング
+- VGGNet → 深さと幅を手動調整
+- MobileNet → 幅係数のみスケーリング
+- Inception → 複数サイズのフィルタを並列使用（スケーリングではない）
+
+#### 詳細パターン：EfficientNetの特徴
+
+> 「EfficientNetに関する説明として、最も適切な選択肢を1つ選べ。」
+
+✅ **正解の選択肢**：
+- 「深さ・幅・解像度の3次元を複合的にスケーリングする」
+- 「Compound Coefficient φ を用いて統一的にスケーリング」
+- 「ベースネットワーク（B0）はNAS（Neural Architecture Search）で設計」
+- 「少ないパラメータで従来モデルより高精度を実現」
+- 「MBConv（Mobile Inverted Bottleneck）ブロックを使用」
+
+❌ **不適切な選択肢（混同注意）**：
+- 「深さのみをスケーリングする」→ ResNetの特徴
+- 「Transformer構造を使用」→ Vision Transformerの特徴
+- 「全結合層を複数段使用」→ VGGNetの古い設計
+- 「Residual接続がない」→ MBConvブロック内にResidual接続あり
+- 「計算量が非常に大きい」→ 逆に効率的（少ない計算量で高精度）
+
+#### ひっかけポイント
+
+| ひっかけ | 正しい理解 |
+|----------|------------|
+| ❌ 深さのみスケーリング | ✅ 深さ・幅・解像度の3次元同時スケーリング |
+| ❌ 手動設計 | ✅ NASで自動設計（B0）+複合スケーリング（B1～B7） |
+| ❌ パラメータ数が多い | ✅ 効率的（ResNetより少ないパラメータで高精度） |
+| ❌ モバイル専用 | ✅ B0はモバイル向け、B7はサーバー向けと幅広い |
+| ❌ Transformerベース | ✅ CNNベース（Convolutionベース） |
+
+#### 穴埋め問題例
+
+> 「EfficientNetでは、ネットワークの（①深さ）・（②幅）・（③解像度）の3つを、（④Compound Coefficient/複合係数）によって統一的にスケーリングする手法を採用している。」
+
+**正解**：
+- ① 深さ（Depth、層数）
+- ② 幅（Width、チャネル数）
+- ③ 解像度（Resolution、画像サイズ）
+- ④ Compound Coefficient（複合係数）/ $\phi$
+
+### 補足
+
+#### 実務での利用
+
+**転移学習**：
+- ImageNetで事前学習済みのEfficientNetを利用
+- 独自データセットでファインチューニング
+- PyTorch、TensorFlow、Kerasで実装済みモデルが利用可能
+
+**用途別のモデル選択**：
+- **モバイル・エッジ**：EfficientNet-B0, B1（軽量）
+- **サーバー・クラウド**：EfficientNet-B4～B7（高精度）
+- **リアルタイム処理**：B0, B1（推論速度重視）
+- **精度重視**：B6, B7（計算資源豊富な場合）
+
+**実装例**（PyTorch）：
+```python
+import torchvision.models as models
+
+# EfficientNet-B0をロード
+model = models.efficientnet_b0(pretrained=True)
+
+# 独自データセット用にファインチューニング
+model.classifier[1] = nn.Linear(1280, num_classes)
+```
+
+#### EfficientNetの後継・発展
+
+**EfficientNetV2（2021）**：
+- 学習速度を大幅改善（V1の5～11倍高速）
+- Progressive Learning（段階的に画像サイズを増やして学習）
+- Fused-MBConvブロック導入
+
+**EfficientDet（2020）**：
+- EfficientNetをベースにした物体検出モデル
+- BiFPN（Bidirectional Feature Pyramid Network）
+
+#### 関連技術
+
+**NAS（Neural Architecture Search）**：
+- 強化学習や進化的アルゴリズムでネットワーク構造を自動設計
+- EfficientNet-B0の設計に使用
+- 計算コストが高いが、高性能な構造を発見可能
+
+**AutoML**：
+- ハイパーパラメータ、アーキテクチャ、データ拡張を自動最適化
+- EfficientNetはAutoMLの成功例
+
+---
 
 ### Depthwise Separable Convolution（深さ方向分離可能畳み込み）
 
