@@ -84,6 +84,20 @@
 - **シミュレーションギャップ（Reality Gap）**: シミュレータと実環境の差異 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
 - **ドメイン適応（Domain Adaptation）**: 実データで方策を微調整する転移手法 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
 - **システム同定（System Identification）**: 実環境の物理パラメータを推定してシミュレータを調整 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **マルチエージェント強化学習（MARL）**: 複数エージェントが協調的・競争的関係を考慮しながら学習する強化学習 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **協調的MARL（Cooperative MARL）**: 全エージェントが共通目標を持ち協力して学習 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **競争的MARL（Competitive MARL）**: エージェント間で利益が対立、ゼロサムゲーム等 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **混合MARL（Mixed MARL）**: 協調と競争が混在（チーム内協調、チーム間競争） → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **自己対戦（Self-Play）**: 自分自身のコピーと対戦して学習する競争的MARLの手法 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **AlphaGo**: GoogleのDeepMindが開発した囲碁AI、マルチエージェント強化学習の代表例 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **AlphaZero**: 囲碁・将棋・チェスでトップレベルに到達した汎用ゲームAI → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **OpenAI Five**: OpenAIのDota 2プロレベルAI（5 vs 5チーム戦、協調的MARL） → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **AlphaStar**: DeepMindのStarCraft IIプロレベルAI、長期戦略学習 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **CTDE（Centralized Training, Decentralized Execution）**: 学習時は全情報利用、実行時は各エージェント独立判断 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **QMIX**: 個別Q関数を単調結合して共同行動価値を表現する協調的MARL手法 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **ナッシュ均衡（Nash Equilibrium）**: どのエージェントも戦略変更の動機がない状態 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **非定常性（Non-Stationarity）**: 他エージェントの学習により環境が動的変化する問題 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
+- **クレジット割当問題（Credit Assignment）**: チーム報酬から個別貢献度を判定困難な問題 → [05_machine_learning/reinforcement_learning.md](../05_machine_learning/reinforcement_learning.md)
 - **教師なし学習（Unsupervised Learning）**: 正解ラベルなしでデータの構造・パターンを発見 → [05_machine_learning/unsupervised_learning.md](../05_machine_learning/unsupervised_learning.md)
 - **k-means法**: k個のクラスタ中心でデータをグループ化する基本的クラスタリング手法 → [05_machine_learning/unsupervised_learning.md](../05_machine_learning/unsupervised_learning.md)
 - **クラスタリング（Clustering）**: データを類似性に基づいてグループ分け → [05_machine_learning/unsupervised_learning.md](../05_machine_learning/unsupervised_learning.md)
@@ -210,6 +224,13 @@
 - **Pointwise Convolution**: 1×1畳み込みでチャネル間の情報を混合 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
 - **MobileNet**: Depthwise Separable Convolutionを用いたモバイル向け軽量CNNモデル（Google, 2017） → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
 - **Group Convolution**: チャネルをグループ分割して畳み込み、計算量削減 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **NAS（Neural Architecture Search）**: ネットワーク構造を自動設計、大量GPU並列探索で最適アーキテクチャを発見 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **AutoML（Automated Machine Learning）**: ハイパーパラメータ、アーキテクチャ、データ拡張を自動最適化、NASを含む広い概念 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **探索空間（Search Space）**: NASで探索する構造の候補範囲（層の種類・数・接続方法等） → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **強化学習ベースNAS**: RNNコントローラが構造を生成、精度を報酬として学習 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **進化的アルゴリズムNAS**: 構造を個体として進化、選択・交叉・突然変異で最適化 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **DARTS（Differentiable NAS）**: 構造探索を微分可能に定式化、探索時間を大幅短縮 → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
+- **重み共有（Weight Sharing）**: NASで候補間で重みを共有し計算コスト削減（ENAS） → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
 - **EfficientNet**: Compound Scaling（複合スケーリング）で深さ・幅・解像度を同時最適化（Google, 2019） → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
 - **Compound Scaling（複合スケーリング）**: ネットワークの深さ・幅・解像度を複合係数で統一的にスケーリング → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
 - **Compound Coefficient（複合係数）**: EfficientNetでスケーリング度合いを制御するパラメータφ → [06_deep_learning/cnn.md](../06_deep_learning/cnn.md)
@@ -357,6 +378,17 @@
 - **ニューラル機械翻訳（NMT）**: 深層学習による翻訳、Transformer使用、計算コスト大・ハルシネーション等の課題あり（2015年代～） → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
 - **ハルシネーション（機械翻訳）**: NMTで流暢だが誤った翻訳を生成する問題 → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
 - **Seq2Seq（Sequence-to-Sequence）**: Encoder-Decoderで系列変換、機械翻訳の基礎 → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **GLUE（General Language Understanding Evaluation）**: 自然言語理解を評価する標準ベンチマーク、9つの文章理解タスクで構成、機械翻訳等は含まない → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **CoLA（Corpus of Linguistic Acceptability）**: GLUEタスク、文法性判定 → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **SST-2（Stanford Sentiment Treebank）**: GLUEタスク、感情分析（ポジ/ネガ） → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **MRPC（Microsoft Research Paraphrase Corpus）**: GLUEタスク、パラフレーズ判定（2文の意味が同じか） → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **STS-B（Semantic Textual Similarity Benchmark）**: GLUEタスク、意味的類似度スコア（0-5） → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **QQP（Quora Question Pairs）**: GLUEタスク、質問ペアの同値性判定 → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **MNLI（Multi-Genre Natural Language Inference）**: GLUEタスク、自然言語推論（含意/矛盾/中立） → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **QNLI（Question Natural Language Inference）**: GLUEタスク、質問応答推論（文章が質問の答えを含むか） → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **RTE（Recognizing Textual Entailment）**: GLUEタスク、含意関係認識 → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **WNLI（Winograd Natural Language Inference）**: GLUEタスク、代名詞の指示対象推論 → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **SuperGLUE**: GLUEの後継、より難しいタスクを集めた発展版ベンチマーク → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
 - **プロンプトエンジニアリング（Prompt Engineering）**: 生成AIに望ましい出力を得るため指示文を設計・最適化 → [07_ai_applications/prompt_engineering.md](../07_ai_applications/prompt_engineering.md)
 - **プロンプト（Prompt）**: AIへの入力指示文 → [07_ai_applications/prompt_engineering.md](../07_ai_applications/prompt_engineering.md)
 - **Zero-shot学習**: 例示なしで指示のみで実行 → [07_ai_applications/prompt_engineering.md](../07_ai_applications/prompt_engineering.md)
@@ -402,11 +434,18 @@
 ## 法律・倫理
 - **営業秘密**: 秘密管理性・有用性・非公知性の3要件で保護される情報 → [09_law_ethics/trade_secret.md](../09_law_ethics/trade_secret.md)
 - **不正競争防止法**: 営業秘密の保護を規定する法律 → [09_law_ethics/trade_secret.md](../09_law_ethics/trade_secret.md)
+- **ハードロー（Hard Law）**: 法的拘束力のある規制（法律・条例）、違反に罰則あり、強制力高いが柔軟性低い → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
+- **ソフトロー（Soft Law）**: 法的拘束力のないガイドライン・指針、罰則なし、柔軟性高く迅速対応可能だが強制力なし → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
+- **リスクベースアプローチ（AI規制）**: 高リスク領域は早期にハードロー化、低リスクはソフトローで柔軟対応 → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
+- **段階的規制**: ソフトローで開始→知見蓄積後にハードロー化する規制手法 → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
+- **EU AI Act**: 世界初の包括的AI規制法、高リスクAIに適合性評価義務、違反に巨額罰金（ハードロー） → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
+- **中国生成AI管理弁法**: 生成AIサービスの登録・審査義務を規定する法律（2023施行、ハードロー） → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
 - **AI倫理原則**: 人間中心・透明性・公平性・プライバシー・安全性・アカウンタビリティ・人間の監督 → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
 - **AIガバナンス**: AI開発・利用におけるリスク管理と倫理原則の実装体系 → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
-- **OECD AI原則**: 世界初の政府間AI合意、42カ国採択（2019） → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
-- **EU倫理ガイドライン**: 信頼できるAIの7要件、リスクベース分類 → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
-- **人間中心のAI社会原則**: 日本の内閣府が策定した7つの原則（2019） → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
+- **OECD AI原則**: 世界初の政府間AI合意、42カ国採択（2019、ソフトロー） → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
+- **EU倫理ガイドライン**: 信頼できるAIの7要件、リスクベース分類（ソフトロー） → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
+- **人間中心のAI社会原則**: 日本の内閣府が策定した7つの原則（2019、ソフトロー） → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
+- **米国AI権利章典ブループリント**: 5つの原則を提示（2022、ソフトロー） → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
 - **Ethics by Design**: 設計段階から倫理原則を組み込む開発手法 → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
 - **リスクベースアプローチ**: 高リスク領域では厳格、低リスクは柔軟対応 → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
 - **透明性（Transparency）**: AIの動作原理・データ利用・判断根拠の説明可能性 → [09_law_ethics/ai_ethics_principles.md](../09_law_ethics/ai_ethics_principles.md)
@@ -432,6 +471,26 @@
 - **瑕疵担保責任**: プログラムのバグは瑕疵、精度未達は瑕疵でない → [09_law_ethics/ai_development_contract.md](../09_law_ethics/ai_development_contract.md)
 - **職務著作**: 契約なき場合、著作権は開発者に帰属するデフォルトルール → [09_law_ethics/ai_development_contract.md](../09_law_ethics/ai_development_contract.md)
 
+## AI限界・セキュリティ
+- **敵対的攻撃（Adversarial Attack）**: ニューラルネットワークを意図的に誤作動させる攻撃手法 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **敵対的サンプル（Adversarial Examples）**: 誤分類を誘発するために作成された入力データ → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **摂動（Perturbation）**: 入力に加える微小なノイズ、人間には知覚不可能 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **FGSM（Fast Gradient Sign Method）**: 勾配の符号を利用した基本的な敵対的攻撃手法 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **PGD（Projected Gradient Descent）**: FGSMの反復版、より強力な攻撃 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **C&W攻撃（Carlini & Wagner）**: 最も強力な敵対的攻撃の1つ → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **転移可能性（Transferability）**: ある模델で生成した敵対的サンプルが他モデルでも有効な性質 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **ホワイトボックス攻撃**: モデルの内部構造・パラメータを知っている場合の攻撃 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **ブラックボックス攻撃**: モデルの出力のみにアクセスできる場合の攻撃 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **物理的攻撃（Physical Attack）**: 実世界の物体（道路標識等）を改変する攻撃 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **敵対的訓練（Adversarial Training）**: 敵対的サンプルで学習して頑健性を向上させる防御手法 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **ターゲット攻撃（Targeted Attack）**: 特定のクラスに誤分類させる攻撃 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **非ターゲット攻撃（Untargeted Attack）**: 正しいクラス以外に誤分類させる攻撃 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **Universal Adversarial Perturbations**: 1つの摂動で多数の画像を誤分類させる攻撃 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **データ依存性**: AIは訓練データの品質に完全依存する限界 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **説明困難性（ブラックボックス問題）**: 深層学習の判断根拠が不透明な問題 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **ドメイン外データ**: 訓練時に見なかったデータへの対応困難 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+- **常識の欠如**: 人間の常識や因果推論の理解不足 → [08_ai_society/ai_limitations.md](../08_ai_society/ai_limitations.md)
+
 ## 数学・統計
 - **情報理論（Information Theory）**: 情報の量・伝達・圧縮を数学的に扱う理論 → [10_math_statistics/information_theory.md](../10_math_statistics/information_theory.md)
 - **エントロピー（Entropy）**: 情報の不確実性、$H(X) = -\sum p(x) \log p(x)$ → [10_math_statistics/information_theory.md](../10_math_statistics/information_theory.md)
@@ -455,6 +514,12 @@
 ---
 
 ## 更新履歴
+- 2026/01/07: マルチエージェント強化学習（MARL、AlphaGo、AlphaZero、OpenAI Five、AlphaStar、自己対戦、協調・競争、CTDE、QMIX、ナッシュ均衡等）追加
+- 2026/01/07: 米国とEUのAI規制アプローチ比較（EU AI Act、米国AI権利章典、包括的規制 vs セクター別規制、リスクベース、罰則、域外適用等）追加
+- 2026/01/07: 敵対的攻撃（Adversarial Attack、敵対的サンプル、FGSM、PGD、転移可能性、物理的攻撃、敵対的訓練、ホワイトボックス・ブラックボックス攻撃等）追加
+- 2026/01/06: GLUE（9タスク、CoLA、SST-2、MRPC、STS-B、QQP、MNLI、QNLI、RTE、WNLI、含まれないタスク）追加
+- 2026/01/06: NAS（Neural Architecture Search、探索空間、探索戦略、強化学習ベース、進化的アルゴリズム、勾配ベース、並列化、DARTS、AutoML等）追加
+- 2026/01/06: ハードロー・ソフトロー（法的拘束力、罰則、柔軟性、GDPR、OECD原則、EU AI Act、リスクベースアプローチ、段階的規制等）追加
 - 2026/01/03: CNN出力サイズ計算問題、ランダムフォレスト構成要素、バギングとアンサンブル学習の関係、スペクトル包絡とケプストラム分析を索引に追加
 - 2026/01/02: 正則化選択肢問題対策（不適切パターン、データ拡張との違い、L1/L2比較、判定フロー等）追加
 - 2026/01/02: 量子化・知識蒸留詳細（PTQ/QAT、FP32→INT8、教師・生徒モデル、ソフトターゲット、温度パラメータ、実例等）追加

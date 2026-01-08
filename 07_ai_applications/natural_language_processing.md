@@ -814,6 +814,287 @@ BERTの予測候補:
 - **データ要件**：ファインチューニングにもある程度のデータが必要
 - **モデル選択**：タスクに応じてBase/Large、多言語/単一言語を選択
 
+---
+
+## GLUE（General Language Understanding Evaluation）★試験頻出
+
+### 定義
+**GLUE**は、自然言語理解タスクを評価するための標準ベンチマーク。9つの多様なNLPタスクで構成され、モデルの汎用的な言語理解能力を測定する。2018年に公開され、BERT等の事前学習モデルの評価に広く使用される。
+
+### 要点
+- **9つのタスク**で構成される総合ベンチマーク
+- **文章理解**（分類・推論・類似度等）に特化
+- BERTやGPTなどの事前学習モデルの性能評価に使用
+- 人間の性能を超えるモデルも登場（BERT、GPT-3等）
+
+### GLUEに含まれる9つのタスク
+
+| タスク名 | タスク内容 | データセット | 例 |
+|----------|------------|--------------|-----|
+| **CoLA** | 文法性判定 | 文が文法的に正しいか | "The cat sleep." → 不正 |
+| **SST-2** | 感情分析 | 映画レビューの感情（ポジ/ネガ） | "Great movie!" → ポジティブ |
+| **MRPC** | パラフレーズ判定 | 2文が意味的に同じか | 文1と文2が同義か |
+| **STS-B** | 意味的類似度 | 2文の類似度スコア（0-5） | 類似度3.5 |
+| **QQP** | 質問ペアの同値性 | 2つの質問が同じ意図か | "How to cook rice?" vs "Rice cooking method?" → 同値 |
+| **MNLI** | 自然言語推論 | 前提文から仮説文を推論（含意/矛盾/中立） | 前提→仮説の関係判定 |
+| **QNLI** | 質問応答推論 | 文章が質問の答えを含むか | 質問+文→答えあり/なし |
+| **RTE** | 含意関係認識 | 文1が文2を含意するか | 前提→結論の成立判定 |
+| **WNLI** | Winograd Schema | 代名詞の指示対象を推論 | "The trophy didn't fit in the suitcase because **it** was too big." → "it"=trophy? |
+
+### GLUEタスクの詳細
+
+#### 1. CoLA（Corpus of Linguistic Acceptability）
+**文法性判定**：文が英語として文法的に正しいかを判定
+
+```
+✅ 正しい例: "The cat is sleeping."
+❌ 誤った例: "The cat sleep."（三人称単数の動詞形が誤り）
+```
+
+#### 2. SST-2（Stanford Sentiment Treebank）
+**感情分析**：映画レビューの感情極性を判定（ポジティブ/ネガティブの2値分類）
+
+```
+入力: "This movie is fantastic!"
+出力: ポジティブ
+
+入力: "Boring and disappointing."
+出力: ネガティブ
+```
+
+#### 3. MRPC（Microsoft Research Paraphrase Corpus）
+**パラフレーズ判定**：2つの文が意味的に同じかを判定
+
+```
+文1: "The company will release a new product."
+文2: "A new product will be launched by the company."
+判定: ✅ パラフレーズ（意味が同じ）
+
+文1: "I like apples."
+文2: "I hate oranges."
+判定: ❌ パラフレーズでない
+```
+
+#### 4. STS-B（Semantic Textual Similarity Benchmark）
+**意味的類似度**：2文の類似度を0～5のスコアで評価（回帰タスク）
+
+```
+文1: "A dog is running in the park."
+文2: "A puppy is playing in the garden."
+類似度: 3.5（やや類似）
+
+文1: "I love programming."
+文2: "The weather is sunny."
+類似度: 0.0（無関係）
+```
+
+#### 5. QQP（Quora Question Pairs）
+**質問ペアの同値性**：2つの質問が同じ意図を持つかを判定
+
+```
+質問1: "How can I learn Python?"
+質問2: "What's the best way to study Python?"
+判定: ✅ 同じ意図
+
+質問1: "How to cook pasta?"
+質問2: "What is quantum physics?"
+判定: ❌ 異なる意図
+```
+
+#### 6. MNLI（Multi-Genre Natural Language Inference）
+**自然言語推論**：前提文から仮説文の真偽を推論（含意/矛盾/中立の3値分類）
+
+```
+前提: "All cats are animals."
+仮説: "Some animals are cats."
+判定: 含意（前提が真なら仮説も真）
+
+前提: "John is taller than Mary."
+仮説: "Mary is taller than John."
+判定: 矛盾
+
+前提: "I went to Tokyo."
+仮説: "I like sushi."
+判定: 中立（関係不明）
+```
+
+#### 7. QNLI（Question Natural Language Inference）
+**質問応答推論**：文章が質問の答えを含むかを判定
+
+```
+質問: "Who invented the telephone?"
+文章: "Alexander Graham Bell invented the telephone in 1876."
+判定: ✅ 答えを含む
+
+質問: "What is the capital of France?"
+文章: "Paris is a beautiful city with many museums."
+判定: ✅ 答えを含む（Paris=首都と推論）
+
+質問: "When was Einstein born?"
+文章: "Einstein was a famous physicist."
+判定: ❌ 答えを含まない
+```
+
+#### 8. RTE（Recognizing Textual Entailment）
+**含意関係認識**：文1（前提）が文2（仮説）を含意するかを判定
+
+```
+前提: "The company hired 100 new employees."
+仮説: "The company expanded its workforce."
+判定: ✅ 含意（雇用増→労働力拡大）
+
+前提: "It rained yesterday."
+仮説: "The weather was sunny yesterday."
+判定: ❌ 含意しない（矛盾）
+```
+
+#### 9. WNLI（Winograd Natural Language Inference）
+**Winograd Schema Challenge**：代名詞の指示対象を推論
+
+```
+文: "The trophy didn't fit in the suitcase because it was too big."
+質問: "it"は何を指すか？
+→ trophy（トロフィーが大きすぎてスーツケースに入らない）
+
+文: "The trophy didn't fit in the suitcase because it was too small."
+質問: "it"は何を指すか？
+→ suitcase（スーツケースが小さすぎてトロフィーが入らない）
+```
+
+### GLUEに**含まれない**タスク（試験頻出のひっかけ）
+
+以下は**GLUEベンチマークに含まれないタスク**で、試験で「最も不適切な選択肢」として出題されやすい：
+
+❌ **GLUEに含まれないタスク**：
+
+1. **機械翻訳（Machine Translation）**
+   - 言語間の翻訳タスク
+   - GLUEは**単一言語（英語）**の理解タスクのみ
+   - 翻訳は別のベンチマーク（WMT等）で評価
+
+2. **画像認識（Image Classification）**
+   - コンピュータビジョンのタスク
+   - GLUEは**テキストのみ**扱う
+   - 画像はImageNet等で評価
+
+3. **音声認識（Speech Recognition, ASR）**
+   - 音声をテキストに変換
+   - GLUEは**テキスト入力のみ**
+   - 音声はLibriSpeech等で評価
+
+4. **テキスト生成（Text Generation）**
+   - 文章の自動生成タスク
+   - GLUEは**理解タスク**のみ（生成含まず）
+   - 生成はGPT等で別途評価
+
+5. **固有表現抽出（Named Entity Recognition, NER）**
+   - 人名・地名等の識別
+   - GLUEには含まれない（系列ラベリングタスク）
+   - CoNLL等の別ベンチマークで評価
+
+6. **要約（Summarization）**
+   - 文書の要約生成
+   - 生成タスクなのでGLUEに含まれない
+
+7. **物体検出（Object Detection）**
+   - 画像中の物体位置と種類を特定
+   - コンピュータビジョンタスク、GLUEは対象外
+
+### GLUEタスクの分類整理
+
+| カテゴリ | GLUEに含まれるタスク | GLUEに含まれないタスク |
+|----------|----------------------|------------------------|
+| **文章理解** | CoLA、SST-2、MNLI、QNLI、RTE、WNLI | — |
+| **文ペア判定** | MRPC、QQP、STS-B | — |
+| **生成** | — | 機械翻訳、要約、文章生成 |
+| **系列ラベリング** | — | 固有表現抽出（NER）、品詞タグ付け |
+| **画像** | — | 画像認識、物体検出 |
+| **音声** | — | 音声認識、音声合成 |
+
+### 試験での問われ方
+
+#### 典型問題：「GLUEのタスクとして、最も不適切な選択肢を1つ選べ」
+
+**選択肢例**：
+- A. 感情分析（SST-2） → ✅ 適切（GLUEに含まれる）
+- B. パラフレーズ判定（MRPC） → ✅ 適切（GLUEに含まれる）
+- C. **機械翻訳** → ❌ **最も不適切**（GLUEに含まれない）
+- D. 自然言語推論（MNLI） → ✅ 適切（GLUEに含まれる）
+
+**正解**: **C（最も不適切）**
+
+**理由**：
+- GLUEは**単一言語（英語）の理解タスク**のみ
+- **機械翻訳**は言語間変換で、GLUEベンチマークに含まれない
+- 翻訳はWMT（Workshop on Machine Translation）等で評価
+
+#### 引っ掛けポイント
+
+| ひっかけ選択肢 | 正しい理解 | 含まれる理由/含まれない理由 |
+|----------------|------------|----------------------------|
+| ✅ 感情分析 | GLUEに含まれる | SST-2タスク |
+| ✅ 自然言語推論 | GLUEに含まれる | MNLI、RTE、WNLI |
+| ✅ 文法性判定 | GLUEに含まれる | CoLA |
+| ✅ 質問応答推論 | GLUEに含まれる | QNLI |
+| ❌ **機械翻訳** | **GLUEに含まれない** | 言語間変換、理解タスクでない |
+| ❌ **画像認識** | **GLUEに含まれない** | テキストでない |
+| ❌ **音声認識** | **GLUEに含まれない** | テキストでない |
+| ❌ **テキスト生成** | **GLUEに含まれない** | 生成タスク（理解タスクのみ） |
+| ❌ **固有表現抽出** | **GLUEに含まれない** | 系列ラベリング、GLUEは分類中心 |
+
+**重要な対比**：
+- **理解タスク（GLUEに含まれる）**：分類・推論・類似度判定
+- **生成タスク（GLUEに含まれない）**：翻訳・要約・文章生成
+- **マルチモーダル（GLUEに含まれない）**：画像・音声を扱うタスク
+- **系列ラベリング（GLUEに含まれない）**：NER・品詞タグ付け
+
+### 実例
+
+#### 例1：モデル評価でのGLUE使用
+```
+【BERTの評価】
+GLUE総合スコア: 80.5
+- CoLA: 60.5
+- SST-2: 93.5
+- MRPC: 88.9
+- STS-B: 87.6
+- QQP: 71.2
+- MNLI: 84.6
+- QNLI: 90.5
+- RTE: 66.4
+- WNLI: 65.1
+
+→ 9タスクの平均で総合的な言語理解能力を評価
+```
+
+#### 例2：GLUEと他ベンチマークの使い分け
+```
+【評価対象】
+テキスト理解: GLUE（SST-2、MNLI等）
+機械翻訳: WMT（Workshop on Machine Translation）
+質問応答: SQuAD（Stanford Question Answering Dataset）
+画像認識: ImageNet
+音声認識: LibriSpeech
+
+→ タスクごとに適切なベンチマークを使用
+```
+
+### 補足
+
+#### SuperGLUE（発展版）
+- GLUEが人間性能を超えたため、**より難しいタスク**を集めた後継ベンチマーク
+- より複雑な推論・常識推論を要求
+- BoolQ、MultiRC、ReCoRD等の新タスクを含む
+
+#### 実務での利用
+- **事前学習モデルの選定**：GLUE性能で汎用性を比較
+- **ファインチューニングの効果測定**：タスク別の精度向上を確認
+- **研究論文での標準評価**：論文で必ず報告されるベンチマーク
+
+#### 日本語の類似ベンチマーク
+- **JGLUE（Japanese GLUE）**：日本語版のGLUEベンチマーク
+- 日本語の文章理解タスクで構成
+
 ### 関連トピック
 - [Transformer](../06_deep_learning/transformer.md)：BERTの基盤アーキテクチャ
 - [RNN](../06_deep_learning/rnn.md)：系列データ処理、Seq2Seqで機械翻訳
