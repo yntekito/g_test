@@ -8,6 +8,65 @@
 
 ---
 
+## 機械学習（特徴量エンジニアリング）
+- **PCA（主成分分析）**: 最も代表的な線形次元削減手法。データの分散が最大となる方向に射影 → [05_machine_learning/feature_engineering.md](../05_machine_learning/feature_engineering.md)
+- **t-SNE**: 非線形次元削減、2D/3D可視化に特化。クラスタ構造を明瞭に表示 → [05_machine_learning/feature_engineering.md](../05_machine_learning/feature_engineering.md)
+- **オートエンコーダ（Autoencoder）**: 深層学習による非線形次元削減。圧縮した潜在変数を特徴量として使用 → [05_machine_learning/feature_engineering.md](../05_machine_learning/feature_engineering.md)
+- **次元削減**: 高次元データを低次元に変換する技術。PCA、t-SNE、オートエンコーダ等 → [05_machine_learning/feature_engineering.md](../05_machine_learning/feature_engineering.md)
+
+## 機械学習（過学習対策・データ拡張）
+- **データ拡張（Data Augmentation）**: 訓練データを人工的に増やして過学習を防ぐ手法 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **Mixup（ミックスアップ）**: 2つの訓練サンプルを線形補間し、画像とラベルの両方を混ぜ合わせて新しいサンプルを生成するデータ拡張手法。過学習抑制と汎化性能向上に有効 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **CutMix（カットミックス）**: 画像の一部を矩形領域で切り取り別の画像で置き換え、ラベルは面積比で混合するデータ拡張手法 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **過学習（Overfitting）**: 訓練データに過度に適合し、未知データへの性能が低下する現象 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+- **正則化（Regularization）**: 過学習を防ぐためにモデルに制約を課す手法。L1/L2正則化等 → [05_machine_learning/overfitting_underfitting.md](../05_machine_learning/overfitting_underfitting.md)
+
+## 数学・最適化
+- **AdaGrad（Adaptive Gradient Algorithm）**: 各パラメータごとに学習率を適応的に調整する最適化アルゴリズム。過去の勾配の二乗和を累積し、スパースデータに強いが学習率が単調減少する問題がある → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
+- **RMSprop（Root Mean Square Propagation）**: AdaGradの学習率単調減少問題を解決。過去の勾配を指数移動平均で累積 → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
+- **Adam（Adaptive Moment Estimation）**: モメンタムと適応的学習率を組み合わせた最も広く使われる最適化手法 → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
+- **SGD（確率的勾配降下法）**: 1サンプルごとに勾配を計算して更新する基本的な最適化手法 → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
+- **Momentum（モメンタム）**: 慣性を加えて収束を高速化する最適化手法 → [10_math_statistics/optimization.md](../10_math_statistics/optimization.md)
+
+## 機械学習（モデル選択）
+- **AIC（赤池情報量規準）**: モデルの尤度とパラメータ数のバランスを評価。値が小さいほど良い → [05_machine_learning/model_selection.md](../05_machine_learning/model_selection.md)
+- **BIC（ベイズ情報量規準）**: AICにサンプル数を考慮。よりシンプルなモデルを選択しやすい → [05_machine_learning/model_selection.md](../05_machine_learning/model_selection.md)
+- **情報量規準**: モデルの複雑さと精度のバランスを数値化する指標。AIC、BIC等 → [05_machine_learning/model_selection.md](../05_machine_learning/model_selection.md)
+- **グリッドサーチ**: ハイパーパラメータの全組み合わせを網羅的に試す手法 → [05_machine_learning/model_selection.md](../05_machine_learning/model_selection.md)
+
+## 深層学習（生成モデル）
+- **VAE（変分オートエンコーダ）**: 潜在変数を確率分布としてモデル化。再構成誤差+KLダイバージェンスを損失関数とする生成モデル → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **オートエンコーダ（Autoencoder）**: 入力を潜在表現に圧縮・再構成する教師なし学習モデル。次元削減や異常検知に使用 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **GAN（敵対的生成ネットワーク）**: 生成器と識別器の敵対的学習で高品質なデータを生成 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+- **CycleGAN**: ペア画像なしで双方向のドメイン変換が可能。Cycle Consistency Lossを使用 → [06_deep_learning/generative_models.md](../06_deep_learning/generative_models.md)
+
+## AI社会・倫理
+- **XAI（説明可能なAI）**: AIモデルの予測根拠を人間が理解できる形で説明する技術。ブラックボックス問題の解決 → [08_ai_society/xai_explainable_ai.md](../08_ai_society/xai_explainable_ai.md)
+- **Grad-CAM**: CNNの勾配情報から注目領域をヒートマップで可視化。画像分類の根拠を示す → [08_ai_society/xai_explainable_ai.md](../08_ai_society/xai_explainable_ai.md)
+- **SHAP**: 協力ゲーム理論（Shapley値）を応用し、各特徴量の貢献度を公平に算出 → [08_ai_society/xai_explainable_ai.md](../08_ai_society/xai_explainable_ai.md)
+- **LIME**: 局所的に線形モデルで近似し、個別予測を解釈可能にする手法 → [08_ai_society/xai_explainable_ai.md](../08_ai_society/xai_explainable_ai.md)
+
+## 自然言語処理
+- **Word2Vec**: 単語を低次元ベクトル（分散表現）に変換。CBOW/Skip-gramの2つの学習方式 → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **CBOW（Continuous Bag of Words）**: 周辺単語（文脈）から中心単語を予測するWord2Vecの学習方式。高速で大規模データ向け → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **Skip-gram**: 中心単語から周辺単語を予測するWord2Vecの学習方式。低頻度語に強く精度が高い → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **TF-IDF（Term Frequency-Inverse Document Frequency）**: 文書中の単語の重要度を表す統計的尺度。単語頻度×逆文書頻度で計算 → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **Bag of Words（BoW）**: 文書を単語の出現頻度で表現し、単語の順序を無視する最もシンプルな手法 → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **N-Gram**: 連続するN個の単語（または文字）の組み合わせを分析する手法。単語の順序を考慮 → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **形態素解析**: 文を形態素（意味の最小単位）に分割し品詞を判別する処理 → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+- **構文解析**: 文の文法構造（主語・述語等）を解析する処理 → [07_ai_applications/natural_language_processing.md](../07_ai_applications/natural_language_processing.md)
+
+## 音声処理
+- **フォルマント分析（Formant Analysis）**: 音声信号の共鳴周波数を分析し、母音の識別に使用する手法 → [07_ai_applications/speech_processing.md](../07_ai_applications/speech_processing.md)
+- **MFCC（メル周波数ケプストラム係数）**: 音声認識で広く使われる音響特徴量 → [07_ai_applications/speech_processing.md](../07_ai_applications/speech_processing.md)
+- **音声（Phone）**: 言語によらず人間が発声する区別できる物理的な音の総体。音声学の研究対象 → [07_ai_applications/speech_processing.md](../07_ai_applications/speech_processing.md)
+- **音素（Phoneme）**: 言語ごとに言語の意味の区別に関係する音の最小単位。音韻論の研究対象 → [07_ai_applications/speech_processing.md](../07_ai_applications/speech_processing.md)
+
+## 深層学習ハードウェア
+- **TPU（Tensor Processing Unit）**: Googleが開発した深層学習専用ASIC。低ビット演算で消費電力を抑制し処理速度向上を実現 → [06_deep_learning/hardware_accelerators.md](../06_deep_learning/hardware_accelerators.md)
+- **GPU（Graphics Processing Unit）**: 汎用並列プロセッサ。深層学習の学習・推論に広く利用。CUDAエコシステム → [06_deep_learning/hardware_accelerators.md](../06_deep_learning/hardware_accelerators.md)
+- **FPGA（Field-Programmable Gate Array）**: 再構成可能な集積回路。エッジAI向け、低遅延・低消費電力 → [06_deep_learning/hardware_accelerators.md](../06_deep_learning/hardware_accelerators.md)
+
 ## AI歴史
 - **第二次AIブーム**: 1980年代、エキスパートシステムの実用化で到来 → [02_ai_history/second_ai_boom.md](../02_ai_history/second_ai_boom.md)
 - **エキスパートシステム（Expert System）**: 専門家の知識を取り込んだAIシステム、第二次ブームの中核技術 → [02_ai_history/second_ai_boom.md](../02_ai_history/second_ai_boom.md)
@@ -42,6 +101,15 @@
 - **シンボルグラウンディング問題（Symbol Grounding Problem）**: 記号と現実世界の意味の対応付けの困難さ → [03_ai_definition/frame_problem.md](../03_ai_definition/frame_problem.md)
 - **資格問題（Qualification Problem）**: 行動の前提条件を全て列挙できない問題 → [03_ai_definition/frame_problem.md](../03_ai_definition/frame_problem.md)
 - **Cycプロジェクト**: 人間の常識を論理式で記述する試み（1984年～） → [03_ai_definition/frame_problem.md](../03_ai_definition/frame_problem.md)
+
+## 知識表現
+- **セマンティックネットワーク（意味ネットワーク）**: ノードとエッジでグラフ構造により知識を表現する古典的手法。IS-A関係、HAS-A関係を用いて概念間の階層や属性を表現 → [04_knowledge_representation/semantic_network.md](../04_knowledge_representation/semantic_network.md)
+- **ノード（Node）**: セマンティックネットワークで概念・オブジェクトを表す節点 → [04_knowledge_representation/semantic_network.md](../04_knowledge_representation/semantic_network.md)
+- **エッジ（Edge）**: セマンティックネットワークでノード間の関係を表すリンク → [04_knowledge_representation/semantic_network.md](../04_knowledge_representation/semantic_network.md)
+- **IS-A関係（分類関係）**: 上位・下位概念の関係（例：「犬 IS-A 哺乳類」） → [04_knowledge_representation/semantic_network.md](../04_knowledge_representation/semantic_network.md)
+- **HAS-A関係（所有関係）**: 属性・部分の関係（例：「犬 HAS-A 尾」） → [04_knowledge_representation/semantic_network.md](../04_knowledge_representation/semantic_network.md)
+- **継承（Inheritance）**: 上位概念の属性を下位概念が引き継ぐ仕組み → [04_knowledge_representation/semantic_network.md](../04_knowledge_representation/semantic_network.md)
+- **ベイジアンネットワーク**: 確率分布を用いて不確実性を含む推論を行うグラフ構造の知識表現（セマンティックネットワークとは異なる） → [04_knowledge_representation/semantic_network.md](../04_knowledge_representation/semantic_network.md)
 
 ## 機械学習
 - **損失関数（Loss Function）**: モデルの予測値と正解データとの差分を定量化する関数、学習時に最小化 → [05_machine_learning/supervised_learning.md](../05_machine_learning/supervised_learning.md)
